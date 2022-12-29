@@ -1,0 +1,26 @@
+/*
+    RESOLUCIONES
+                     WIDTH            HEIGHT
+    SMARTPHONE       0-767            376-915 
+    TABLET          767-1023         915-1370
+    DESKTOP           1023-            1370-
+*/
+
+/* DESKTOP [ DEFAULT ] */
+/*@media screen and (min-width: 1024px){
+    Dejar comentado para que sea la resolución default de la página
+}*/
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap");
+
+/* SMARTPHONE */
+@media screen and (min-width: 0px) and (max-width: 767px) 
+and (min-height: 376px) and (max-height: 915px) {
+
+}
+
+/* TABLET */
+@media screen and (min-width: 767px) and (max-width: 1023px)
+and (min-height: 915px) and (max-height: 1370px) {
+    
+}
