@@ -28,15 +28,30 @@
 
 @if(session()->exists('registrado'))
     <script type="text/javascript">
-        //var user = {{ Session::get('registrado') }};
-        $.confirm({
-            title: 'Alumno Insertado',
-            icon: 'fa fa-smile-o',
+        var msj = '{{ Session::get("registrado");}}';
+        $.alert({
+            title: msj,
+            icon: 'fa fa-user-plus',
             theme: 'modern',
             closeIcon: true,
-            animation: 'scale',
+            animation: 'rotate',
             type: 'green',
-            content: 'uwu ',
+            content: 'Para poder iniciar sesión verifique su cuenta de correo electronico',
+        });
+    </script>
+@endif
+
+@if(session()->exists('error'))
+    <script type="text/javascript">
+        var msj = '{{ Session::get("error");}}';
+        $.alert({
+            title: 'Error',
+            icon: 'fa fa-xmark',
+            theme: 'material',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'red',
+            content: msj,
         });
     </script>
 @endif
@@ -68,44 +83,6 @@
                     <i class="fa-solid fa-key"></i> Contraseña:
                 </label>
             </div>
-            <!-- Respuestas GET [Mensajes de regreso] -->
-            <?php
-                // Conexiones
-                if(isset($_GET['200'])){
-                    if($_GET['200'] == "ok"){
-                        echo "<div class='text-success text-end'><b>Usuario insertado con exito</b></div>";
-                    }
-                }
-                // Excepciones
-                if(isset($_GET['e'])){
-                    if($_GET['e'] == "ne"){
-                        echo "<div class='text-danger text-end'><b>Usuario incorrecto</b></div>";
-                    }else if($_GET['e'] == "va"){
-                        echo "<div class='text-danger text-end'><b>El usuario esta vacío</b></div>";
-                    }else if($_GET['e'] == "ex"){
-                        echo "<div class='text-danger text-end'><b>Ocurrio una Exception</b></div>";
-                    }else if($_GET['e'] == "se"){
-                        echo "<div class='text-danger text-end'><b>Inicie sesión</b></div>";
-                    }else if($_GET['e'] == "sp"){
-                        echo "<div class='text-danger text-end'><b>Error en la petición</b></div>";
-                    }
-                }
-            ?>
-            @if(session()->get('success'))
-                <p>uwu</p>
-                <script type="text/javascript">  
-                    $.confirm({
-                        title: 'Que pasa calabaza',
-                        icon: 'fa fa-user',
-                        theme: 'supervan',
-                        closeIcon: true,
-                        animation: 'scale',
-                        type: 'orange',
-                        content: 'uwu',
-                    });
-                </script>
-            @endif
-            <!-- FIN Respuestas GET [Mensajes de regreso] -->
             <a href="#">Olvide mi contraseña</a>
             <input type="submit" class="submitBtn mx-auto" value="Entrar" />
             <label>¿No tienes una cuenta?</label>

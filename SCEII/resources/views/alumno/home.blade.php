@@ -20,7 +20,8 @@
 
     @if(!session()->exists('data'))
         <?php 
-            header("location: /SCEII"); 
+            // Por si el Controller falla xd
+            header("location: /SCEII");
             exit; 
         ?>
     @endif
@@ -50,7 +51,7 @@
             <p>Message: <?=session()->get('data')->tipoUsuario?></p>
             <div class="container">
                 <p>Laboratorios del id: <?=session()->get('data')->tipoUsuario?></p>
-                <a href="actividades.php">
+                <a href="">
                     <div class="form-lab text-white">
                         <i class="fa-solid fa-star" style="color:yellow;"></i> Laboratorio 1
                     </div>

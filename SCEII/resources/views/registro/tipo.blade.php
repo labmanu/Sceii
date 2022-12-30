@@ -24,7 +24,7 @@
             </form>
 			-->
             <form action="registro/docente" method="get">
-			    <input type="submit" name="docente" class="btn-aceptar mx-auto form-lg" value="Profesor" />
+			    <input type="submit" name="docente" class="btn-aceptar mx-auto form-lg" value="Docente" />
             </form>
             <form action="registro/alumno" method="get">
 			    <input type="submit" name="alumno" class="btn-aceptar mx-auto form-lg" value="Alumno" />

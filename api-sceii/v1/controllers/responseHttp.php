@@ -20,7 +20,7 @@ class responseHttp{
         http_response_code(400);
         $array = [
             "message" => $message,
-            "satus" => "Error",
+            "status" => "Error",
             "code" =>  "400"
 
         ];
@@ -31,7 +31,7 @@ class responseHttp{
         if(isset($data))
         $array = [
             "message" => $message,
-            "satus" => "Error",
+            "status" => "Error",
             "code" =>  "401",
             "data" => $data
         ];
@@ -39,7 +39,7 @@ class responseHttp{
         else
         $array = [
             "message" => $message,
-            "satus" => "Error",
+            "status" => "Error",
             "code" =>  "401"
 
         ];
@@ -51,7 +51,7 @@ class responseHttp{
         if(isset($data))
         $array = [
             "message" => $message,
-            "satus" => "Error",
+            "status" => "Error",
             "code" =>  "500",
             "data" => $data
         ];
@@ -59,7 +59,7 @@ class responseHttp{
         else
         $array = [
             "message" => $message,
-            "satus" => "Error",
+            "status" => "Error",
             "code" =>  "500"
 
         ];
