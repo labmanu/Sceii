@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Session;
 
+
 class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -32,7 +33,10 @@ class Controller extends BaseController {
             Session::put('data', $data);
             return redirect()->route('redireccion')->with('message', $message);
         }else {
-            return redirect()->route('redireccion')->with('error', 'No se pudo iniciar la sesión, verifique sus datos');
+            return redirect()->route('/')->with('error', 'Datos incorrectos');
+            //return view('login', ['e'=>'Datos incorrectos']);
+           // return view('login', ['error', 'Datos incorrectos']);
+           
         }
     }
 
@@ -48,7 +52,8 @@ class Controller extends BaseController {
                 return view('login'); // Tipo de usuario NO valido
             }
         }else{
-            return view('login'); // No existe la session
+            return view('login');
+            //return view('login'); // No existe la session
         }
     }
 

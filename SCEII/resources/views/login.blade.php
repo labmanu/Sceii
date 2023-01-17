@@ -22,13 +22,16 @@
     <!-- Customs Styles -->
     <!--<link rel="stylesheet" href= "public/css/login.css">-->
     <link href="public/css/login.css?v=<?php rand(); ?>" rel="stylesheet">
+
+    <!--=============== LOGIN JS ===============-->
+    <script  type="text/javascript" src="{{ asset('public/js/login.js')}}"></script>
     <title>SCEII</title>
 </head>
 <!-- FIN Cabeceras -->
 
 @if(session()->exists('registrado'))
     <script type="text/javascript">
-        var msj = '{{ Session::get("registrado");}}';
+        var msj = '{{ Session::get("registrado"); }}';
         $.alert({
             title: msj,
             icon: 'fa fa-user-plus',
@@ -41,20 +44,6 @@
     </script>
 @endif
 
-@if(session()->exists('error'))
-    <script type="text/javascript">
-        var msj = '{{ Session::get("error");}}';
-        $.alert({
-            title: 'Error',
-            icon: 'fa fa-xmark',
-            theme: 'material',
-            closeIcon: true,
-            animation: 'scale',
-            type: 'red',
-            content: msj,
-        });
-    </script>
-@endif
 
 <!-- Cuerpo de la página -->
 <body class="text-white text-center">
@@ -71,20 +60,24 @@
                     <div class="slider round"></div>
                 </label>-->
             </h3>
+
             <div class="inputContainer">
-                <input name="correo" type="email" class="input-login" placeholder="a" required />
+                <input name="correo" type="email" class="{{(session()->exists('error')?"input-login-error":"input-login") }}" id= "correo" placeholder="a" required />
                 <label class="labelform">
                     <i class="fa-solid fa-envelope"></i> Correo:
                 </label>
             </div>
+            <p class="{{(session()->exists('error')?"labelformErrorAct":"labelformError") }}" id="label_email_error" >Usuario o contraseña incorrecta</p>
             <div class="inputContainer">
-                <input name="clave" type="password" class="input-login" placeholder="a" required />
+                <input name="clave" type="password" class="{{(session()->exists('error')?"input-login-error":"input-login") }}" id= "clave" placeholder="a" required />
                 <label class="labelform">
                     <i class="fa-solid fa-key"></i> Contraseña:
                 </label>
+                <i class="fa-solid fa-eye-slash eye" id="showPassword"></i>
             </div>
+            <p class="{{(session()->exists('error')?"labelformErrorAct":"labelformError") }}"  id="label_clave_error">Usuario o contraseña incorrecta</p>
             <a href="#">Olvide mi contraseña</a>
-            <input type="submit" class="submitBtn mx-auto" value="Entrar" />
+            <input type="submit" class="submitBtn mx-auto" value="Entrar"  id ="btn_send_request"  />
             <label>¿No tienes una cuenta?</label>
             <br>
             <a href="registro">Crear una cuenta</a>

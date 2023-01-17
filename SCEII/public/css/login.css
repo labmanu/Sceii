@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap");
-
 body {
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
@@ -41,7 +40,8 @@ body {
     margin-bottom: 2%;
 }
 
-.input-login {
+.input-login,
+.input-login-error {
     position: absolute;
     padding: 1em;
     top: 0px;
@@ -56,6 +56,23 @@ body {
     z-index: 3;
 }
 
+.input-login-error {
+    border: 2px solid red;
+}
+
+.labelformError,
+.labelformErrorAct {
+    font-size: 1rem;
+    text-align: left;
+    padding: 0;
+    color: red;
+    display: flex;
+}
+
+.labelformError {
+    display: none;
+}
+
 .labelform {
     position: absolute !important;
     top: 15px;
@@ -64,6 +81,17 @@ body {
     background-color: #17202a;
     transition: 0.5s;
     z-index: 1;
+}
+
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    z-index: 3;
+}
+
+.eye:hover {
+    cursor: pointer;
 }
 
 ::placeholder {
@@ -90,14 +118,28 @@ body {
     transform: translateY(-2px);
 }
 
-.input-login:focus + .labelform {
+.input-login:focus+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
     font-size: calc(0.48em + 0.48vw) !important;
 }
 
-.input-login:not(:placeholder-shown) + .labelform {
+.input-login-error:focus+.labelform {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: calc(0.48em + 0.48vw) !important;
+}
+
+.input-login:not(:placeholder-shown)+.labelform {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: calc(0.48em + 0.48vw) !important;
+}
+
+.input-login-error:not(:placeholder-shown)+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
@@ -108,9 +150,13 @@ body {
     border: 2px solid green;
 }
 
+.input-login-error:focus {
+    border: 2px solid red;
+}
+
 .titulo {
     text-align: left;
-    font-size: calc(1.2em + 1.2vw) !important; 
+    font-size: calc(1.2em + 1.2vw) !important;
     font-weight: bold;
     margin-bottom: 4%;
 }
@@ -140,15 +186,15 @@ a:hover {
     display: inline-block;
     width: 50px;
     height: 24px;
-  }
-   
-  /* Ocultamos el checkbox html */
-  .switch input {
-    display:none;
-  }
-   
-  /* Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
-  .slider {
+}
+
+/* Ocultamos el checkbox html */
+.switch input {
+    display: none;
+}
+
+/* Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -158,10 +204,10 @@ a:hover {
     background-color: hsla(0, 0%, 100%, 0.5);
     -webkit-transition: .4s;
     transition: .4s;
-  }
-   
-  /* Pintamos la perilla de control o slider usando el selector before */
-  .slider:before {
+}
+
+/* Pintamos la perilla de control o slider usando el selector before */
+.slider:before {
     position: absolute;
     content: "";
     height: 16px;
@@ -171,80 +217,103 @@ a:hover {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-   
-  /* Cambiamos el color de fondo cuando el checkbox esta activado */
-  input:checked + .slider {
+}
+
+/* Cambiamos el color de fondo cuando el checkbox esta activado */
+input:checked+.slider {
     background-color: #46a525;
-  }
-   
-  /* Deslizamos el slider a la derecha cuando el checkbox esta activado */ 
-  input:checked + .slider:before {
+}
+
+/* Deslizamos el slider a la derecha cuando el checkbox esta activado */
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-   
-  /* Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
-  .slider.round {
+}
+
+/* Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
+.slider.round {
     border-radius: 34px;
-  }
-   
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
-  }
- 
+}
+
 /* SMARTPHONE */
-@media screen and (min-width: 0px) and (max-width: 767px) 
-and (min-height: 376px) and (max-height: 915px) {
+
+@media screen and (min-width: 0px) and (max-width: 767px) and (min-height: 376px) and (max-height: 915px) {
+    
     body {
         font-size: calc(1em + 1vw);
     }
+
     .formulario {
         padding-bottom: 0%;
         margin-bottom: 0%;
     }
+
     .form-login {
         border-radius: 30px 30px 0px 0px;
         -webkit-border-radius: 30px 30px 0px 0px;
         -moz-border-radius: 30px 30px 0px 0px;
-		min-height: auto;
-        height: 72vh;
+        min-height: auto;
+        min-height: 72vh;
+        height: auto;
         width: 100vw;
     }
+
     .icon-logo {
         margin-top: 2%;
         height: 25vh;
     }
+
     .inputContainer {
         margin-bottom: 5%;
         height: 9vh;
     }
+
     .submitBtn {
         width: 100%;
     }
-    .input-login:focus + .labelform {
+
+    .input-login:focus+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
-    .input-login:not(:placeholder-shown) + .labelform {
+
+    .input-login-error:focus+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
-    .titulo{
+
+    .input-login:not(:placeholder-shown)+.labelform {
+        font-size: calc(0.6em + 0.6vw) !important;
+    }
+
+    .input-login-error:not(:placeholder-shown)+.labelform {
+        font-size: calc(0.6em + 0.6vw) !important;
+    }
+
+    .titulo {
         margin-top: 2%;
     }
+
 }
 
 /* TABLET */
-@media screen and (min-width: 767px) and (max-width: 1023px)
-and (min-height: 915px) and (max-height: 1370px) {
+
+@media screen and (min-width: 767px) and (max-width: 1023px) and (min-height: 915px) and (max-height: 1370px) {
+    
     body {
         font-size: calc(1.3em + 1.3vw);
     }
+
     .form-login {
         width: 90vw;
         height: 60vh;
     }
+
     .icon-logo {
         height: 24vh;
     }
+
 }

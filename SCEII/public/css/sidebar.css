@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap");
+body {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    background-color: #131414;
+    color: white;
+    font-size: calc(0.6em + 0.6vw);
+}
+
 .sidebar {
     height: 100%;
     width: 0;
@@ -7,141 +16,366 @@
     background-color: #17202A;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 80px; /**/
     box-shadow: 0 0 30px black;
-    border-radius: 3%;
-  }
-  .sidebar a {
-    padding: 8px 8px 8px 32px; /**/
+    padding-top: 10vh;
+    /*border-radius: 3%;*/
+}
+
+.contenido {
+    padding-top: 10vh;
+}
+
+.openside {
+    width: 20%;
+}
+
+.openmain {
+    margin-left: 20%;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 20px; /**/
+    font-size: 20px;
     color: #818181;
     display: block;
     transition: 0.5s;
-  }
-  .sidebar a:hover {
+}
+
+.sidebar a:hover {
     color: #f1f1f1;
-  }
-  /*.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 35px;
-    margin-left: 50px;
-  }*/
-  .openbtn {
+    background-color: #46a525;
+}
+
+.openbtn {
     left: 0;
     top: 0;
     right: 0;
     position: fixed;
     width: 100%;
-    font-size: 20px; /**/
+    font-size: 20px;
     cursor: pointer;
     background-color: #17202A;
     color: white;
-    padding: 20px 20px; /**/
+    padding: 20px 20px;
     border: none;
     text-align: left;
     margin-bottom: 1%;
-    box-shadow: 0 0 30px black; /**/
+    box-shadow: 0 0 30px black;
     z-index: 3;
-  }
-  .openbtn:hover {
-    background-color: #444;
-  }
-  #main {
-    transition: margin-left .5s;
-    padding: 16px; /**/
-    top: 40px; /**/
-  }
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) { /**/
-    .sidebar {
-      padding-top: 15px;
-    } /**/
-    .sidebar a {
-      font-size: 18px;
-    } /**/
-  }
+}
 
-  .form-lab {
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    top: 40px;
+}
+
+.form-lab {
     position: relative;
     background-color: #17202A;
     background-image: url(../assets/wall-1.jpg);
-    filter: blur(0.8px); /**/
+    /*filter: blur(0.8px);*/
     width: 100%;
-    height: 200px; /**/
-    border-radius: 18px; /**/
-    padding: 20px 40px; /**/
-    font-size: 2em;
+    height: 30vh;
+    border-radius: 18px;
+    padding: 5% 5%;
+    /*font-size: 2em;*/
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black; /**/
+    box-shadow: 0 0 30px black;
     cursor: pointer;
-  }
+}
 
-  .form-lab:hover {
-    transform: translateY(-2px); /**/
-    filter: blur(0px) grayscale(0); /**/
-  }
+.form-lab:hover {
+    transform: translateY(-2px);
+    /*filter: blur(0px) grayscale(0);*/
+}
 
-  .form-act {
+.form-act {
     position: relative;
     background-color: #17202A;
     background-image: url(../assets/wall-2.jpg);
-    filter: blur(0.8px); /**/
+    /*filter: blur(0.8px);*/
     width: 100%;
-    height: 200px; /**/
-    border-radius: 18px; /**/
-    padding: 20px 40px; /**/
+    height: 200px;
+    border-radius: 18px;
+    padding: 20px 40px;
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black; /**/
+    box-shadow: 0 0 30px black;
     cursor: pointer;
-  }
+}
 
-  .form-act:hover {
-    transform: translateY(-2px); /**/
-    filter: blur(0px) grayscale(0); /**/
-  }
+.form-act:hover {
+    transform: translateY(-2px);
+    /*filter: blur(0px) grayscale(0);*/
+}
 
-  .form-det {
+.form-det {
     position: relative;
     background-color: #17202A;
     background-image: url(../assets/wall-3.jpg);
     width: 100%;
-    height: 150px; /**/
-    border-radius: 18px; /**/
-    padding: 20px 40px; /**/
+    height: 150px;
+    border-radius: 18px;
+    padding: 20px 40px;
     font-size: 2em;
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
-    box-shadow: 0 0 30px black; /**/
-  }
+    box-shadow: 0 0 30px black;
+}
 
-  .form-det:hover {
-    transform: translateY(-2px); /**/
-  }
+.form-det:hover {
+    transform: translateY(-2px);
+}
 
-  .btn-circle {
+.btn-circle {
     margin-top: 2%;
     margin-right: 2%;
-    margin-left:auto;
-    display:block;
-    width: 70px; /**/
-    height: 70px; /**/
-    padding: 10px 16px; /**/
-    font-size: 24px; /**/
+    margin-left: auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
     line-height: 1.33;
-    border-radius: 35px; /**/
-  }
+    border-radius: 35px;
+}
 
-  .contenido{
-    margin-top: 80px; /**/
-  }
-
-  .lab-cont{
+.lab-cont {
     z-index: 2;
-    filter: blur(0px) grayscale(0); /**/
-  }
+    /*filter: blur(0px) grayscale(0);*/
+}
+
+.formulario {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: relative;
+    display: grid !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-green {
+    position: relative;
+    background-color: #17202a;
+    width: 50vw;
+    height: 100%;
+    border-radius: 2%;
+    padding: 5% 5%;
+    box-shadow: 0 0 30px black;
+}
+
+.formlg {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.icon-logo {
+    width: 12vw;
+    height: 24vh;
+}
+
+.inputContainer {
+    position: relative !important;
+    height: 55px;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.input-green {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 7px;
+    color: white;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 3;
+}
+
+.labelform {
+    position: absolute !important;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: #17202a;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+::placeholder {
+    color: transparent;
+}
+
+.submitBtn {
+    display: block;
+    min-width: 20%;
+    max-width: 40%;
+    width: 25%;
+    text-align: center;
+    border: none;
+    background-color: #46a525;
+    font-weight: bold;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.submitBtn:hover {
+    background-color: green;
+    transform: translateY(-2px);
+}
+
+.cancelBtn {
+    display: block;
+    width: 150px;
+    text-align: center;
+    padding: 15px 30px;
+    border: none;
+    background-color: #ef2929;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.cancelBtn:hover {
+    background-color: #a40000;
+    transform: translateY(-2px);
+}
+
+.btn-aceptar {
+    display: block;
+    width: 250px;
+    text-align: center;
+    padding: 15px 30px;
+    border: none;
+    background-color: #46a525;
+    font-weight: bold;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.btn-aceptar:hover {
+    background-color: green;
+    transform: translateY(-2px);
+}
+
+.input-green:focus+.labelform {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: calc(0.48em + 0.48vw) !important;
+}
+
+.input-green:not(:placeholder-shown)+.labelform {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: calc(0.48em + 0.48vw) !important;
+}
+
+.input-green:focus {
+    border: 2px solid green;
+}
+
+a {
+    color: #46a525;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #46a525;
+}
+
+a.cancelBtn:visited {
+    color: white;
+}
+
+a:hover {
+    color: green;
+}
+
+.icon {
+    width: 300px;
+}
+
+select {
+    position: relative;
+    background: transparent;
+    height: 55px;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #fff;
+    border-radius: 7px;
+    color: white;
+    margin-bottom: 2%;
+}
+
+select:focus {
+    border: 2px solid green;
+}
+
+select option {
+    background-color: #131414;
+}
+
+.imgTipo {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+
+/* SMARTPHONE */
+
+@media screen and (max-width: 767px) {
+    body {
+        font-size: calc(0.9em + 0.9vw);
+    }
+    .form-green {
+        width: 100vw;
+    }
+    .icon-logo {
+        width: 70vw;
+        height: 35vh;
+    }
+    .openside {
+        width: 100vw;
+        height: 100vh;
+    }
+    .openmain {
+        width: 0vw;
+        height: 0vh;
+    }
+    .sidebar {
+        padding-top: 25%;
+    }
+    .contenido {
+        padding-top: 25%;
+    }
+}
+
+
+/* TABLET */
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {}

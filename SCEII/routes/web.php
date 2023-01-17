@@ -19,9 +19,9 @@ use App\Http\Controllers\ConfirmController;
 
 // Login
 Route::get('/', function () { // Home / Login
-    Session::forget('data');
+    //Session::forget('data');
     return view('login');
-});
+})->name('/');
 Route::post('/login', [Controller::class,'signin'])->name('redireccion.login');
 //Creo que el /inicio se puede dejar como raiz pero se deberia cambiar la forma de cerrar session
 Route::get('/inicio', [Controller::class,'redireccion'])->name('redireccion');

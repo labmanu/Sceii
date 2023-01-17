@@ -1,12 +1,15 @@
 @extends('templates.registro')
 @section('title', 'Tipo de Registro')
-
 @section('headers')
 <!-- Icono de la página -->
 <link rel="icon" href="../public/assets/logo.png">
 <!--<link rel="stylesheet" type="text/css" href="../public/css/registro.css">-->
 <link rel="stylesheet" href="../public/css/registro.css?v=<?php rand(); ?>">
+<!-- REGISTRO JS-->
+<script  type="text/javascript" src="{{ asset('public/js/registro.js')}}"></script>
 @endsection
+
+
 
 @section('content')
 <div class="formulario">
@@ -31,42 +34,41 @@
 			}
 			?> 
 		</div>
-		<form method="post" action="{{route('registrar.nuevo')}}" class="form-registro reg">
-			@csrf
+		<form  class="form-registro reg">
 			<input type="hidden" name="operacion" value="registro" />
 			<h3 class="titulo py-2">Registrarse</h3>
 			<div class="inputContainer">
-				<input name="nombre" type="text" class="input-registro" placeholder="a" required />
+				<input name="nombre" type="text" class="input-registro" id="nombre" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-user"></i> Nombre:
 				</label>
 			</div>
 			<div class="inputContainer">
-				<input name="apellidos" type="text" class="input-registro" placeholder="a" required />
+				<input name="apellidos" type="text" class="input-registro" id="apellidos" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-user"></i> Apellidos:
 				</label>
 			</div>
 			<div class="inputContainer">
-				<input name="correo" type="email" class="input-registro" placeholder="a" required />
+				<input name="correo" type="email" class="input-registro" id="correo" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-envelope"></i> Correo:
 				</label>
 			</div>
 			<div class="inputContainer">
-				<input name="clave" type="password" class="input-registro" placeholder="a" required />
+				<input name="clave" type="password" class="input-registro" id="clave" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-key"></i> Contraseña:
 				</label>
 			</div>
-			<select name="genero">
+			<select name="genero" id="genero">
 				<option selected>Genero:</option>
 				<option value="f">Femenino</option>
 				<option value="m">Masculino</option>
-				<option value="o">Otre</option>
+				<option value="o">Otro</option>
 			</select>
 			<div class="inputContainer">
-				<input name="fecha_nacimiento" type="date" class="input-registro" placeholder="a" required />
+				<input name="fecha_nacimiento" type="date" class="input-registro" id="date" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
 				</label>
@@ -74,19 +76,19 @@
 			<!-- Clasificación del tipo de registro -->
 			<?php
 				if (isset($_GET['jefeLab'])) {
-					echo '<input name="metodo" type="hidden" value="insertarJefe" />';
+					echo '<input name="metodo" type="hidden" id="tipo" value="insertarJefe" />';
 				} elseif (isset($_GET['docente'])) {
-					echo '<input name="metodo" type="hidden" value="insertarDocente" />';
+					echo '<input name="metodo" type="hidden" id="tipo" value="insertarDocente" />';
 				} elseif (isset($_GET['alumno'])) {
-					echo '<input name="metodo" type="hidden" value="insertarAlumno" />';
+					echo '<input name="metodo" type="hidden" id="tipo" value="insertarAlumno" />';
 					echo '
 							<div class="inputContainer">
-								<input name="no_control" type="text" class="input-registro" placeholder="a" />
+								<input name="no_control" type="text" id="noControl" class="input-registro" placeholder="a" />
 								<label id="lblnc" class="labelform">
 								<i class="fa-solid fa-id-card"></i> No. Control:
 								</label>
 							</div>
-							<select name="id_carrera">
+							<select name="id_carrera" id="carrera" >
 								<option value="1">Licenciatura en Administracion</option>
 								<option value="2">Ingeniería Ambiental</option>
 								<option value="3">Ingeniería Bioquímica</option>
@@ -98,7 +100,7 @@
 								<option value="9">Ingeniería en Sistemas Computacionales</option>
 								<option value="10">Ingeniería Química</option>
 							</select>
-							<select name="id_semestre">
+							<select name="id_semestre" id="semestre">
 								<option value="1">1er Semestre</option>
 								<option value="2">2do Semestre</option>
 								<option value="3">3er Semestre</option>
@@ -114,10 +116,10 @@
 								<option value="o">otro</option>
 							</select>';
 				} elseif (isset($_GET['visitante'])) {
-					echo '<input name="metodo" type="hidden" value="insertarVisitante" />';
+					echo '<input name="metodo" type="hidden" id="tipo" value="insertarVisitante" />';
 					echo '
 							<div class="inputContainer">
-								<input name="institucion" type="text" class="input-registro" placeholder="a" />
+								<input name="institucion" type="text" class="input-registro" id="visitante" placeholder="a" />
 								<label id="lblin" class="labelform" >
 								<i class="fa-solid fa-user"></i> Institución:
 								</label>
@@ -134,7 +136,7 @@
 					</a>
 				</td>
 				<td>
-					<input type="submit" class="btn-registrar" value="Registrar" />
+					<input type="submit"  id="btn_registrar" class="btn-registrar" value="Registrar" />
 				</td>
 			</table>
 		</form>

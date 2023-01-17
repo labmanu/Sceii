@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class ConfirmController extends Controller
-{
-    public function start($token)
-    {
+class ConfirmController extends Controller {
+    public function start($token) {
         $responde = Http::withHeaders([
             'Authorization' => $token,
             'Content-Type' => 'application/json'
@@ -19,7 +17,7 @@ class ConfirmController extends Controller
             if ($message == 'Su cuenta ha sido dada de alta exitosamente')
                 return view("registro.confirmar")->with('nombre', $obj->data->nombre);
             else {
-                    return view("registro.confirmar")->with('error', 'error');
+                return view("registro.confirmar")->with('error', 'error');
             }
         } else {
             $obj = $responde->Object();
@@ -29,7 +27,6 @@ class ConfirmController extends Controller
             else {
                 return view("registro.confirmar")->with('error', 'error');
             }
-
         }
     }
 }
