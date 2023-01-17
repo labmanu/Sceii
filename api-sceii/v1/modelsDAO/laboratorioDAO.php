@@ -123,6 +123,27 @@ use Firebase\JWT\Key;
                 $jwt = JWT::encode($token,"sceiiv199","HS256");
                 return $jwt;
         }
+
+
+        function get_all_alumno($id){
+            try{    
+            $this->consulta("CALL get_all_alum_lab(".$id.");");
+            $asoc = $this->get_array_query();
+                $array = array (
+                    "status" => true,
+                    "data" => $asoc
+                );
+                return $array;
+                }
+                catch (Exception $e){
+                $array = [
+                    "status" => false,
+                    "error" => $e->getMessage(),
+                    ];
+                return $array;
+                }
+        }
+
         
 
        

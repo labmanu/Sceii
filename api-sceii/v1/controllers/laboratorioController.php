@@ -52,6 +52,23 @@ require_once('responseHttp.php');
         }
         }
 
+        function get_all_alumno($id){
+            try{
+            $laboratorio = new laboratorioDAO();
+           $status = $laboratorio->get_all_alumno($id);
+           if($status["status"]===true){
+            $this->status201("exito", $status["data"]);
+           }
+           else{
+            $this->status400($status["error"]);
+           }
+        }
+        catch(Exception $e){
+            $this->status400($e->getMessage());
+            exit;
+        }
+        }
+
         function get_laboratorio_cod_acc($id){
             try{
             $laboratorio = new laboratorioDAO();
@@ -119,6 +136,9 @@ require_once('responseHttp.php');
             exit;
         }
         }
+
+
+
 
 
         

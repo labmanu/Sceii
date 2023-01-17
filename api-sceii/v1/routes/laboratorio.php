@@ -27,6 +27,12 @@ include("../controllers/laboratorioController.php");
             $laboratorio->get_laboratorio_cod_acc($codigo_acceso);
             exit;
         }
+
+        if(isset($_REQUEST['id_lab'])){//muestra los alumno inscritos en el laboratorio
+            $id = $_REQUEST['id_lab'];
+            $laboratorio->get_all_alumno($id);
+            exit;
+        }
         
         
     }

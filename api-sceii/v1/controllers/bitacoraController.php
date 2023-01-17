@@ -35,6 +35,45 @@ require_once('responseHttp.php');
             exit;
         }
         }
+
+
+        function bitacora_by_usuario($data){
+            try{
+                $auth = new authorization();
+                $token_data = $auth->authorizationBytoken();
+                $bitacora = new bitacoraDAO;
+                $status = $bitacora->bitacora_by_usuario($token_data['data']['id'], $data);
+                if($status["status"]===true){
+                    $this->status201("exito", $status["data"]);
+               }
+               else{
+                $this->status400($status["error"]);
+               }
+            }
+            catch(Exception $e){
+                $this->status400($e->getMessage());
+                exit;
+            }
+        }
+
+        function bitacora_by_one_date($data,$date){
+            try{
+                $auth = new authorization();
+                $token_data = $auth->authorizationBytoken();
+                $bitacora = new bitacoraDAO;
+                $status = $bitacora->bitacora_by_one_date($token_data['data']['id'], $data,$date);
+                if($status["status"]===true){
+                    $this->status201("exito", $status["data"]);
+               }
+               else{
+                $this->status400($status["error"]);
+               }
+            }
+            catch(Exception $e){
+                $this->status400($e->getMessage());
+                exit;
+            }
+        }
     }
 
 
