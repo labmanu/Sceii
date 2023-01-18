@@ -17,6 +17,12 @@
     <!-- JQUERY  -->
     <script src="https://code.jquery.com/jquery-3.6.2.js"></script>
 
+    <!-- JQuery Confirm -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @yield('headers')
     <!-- Titulo de la página -->
     <title>@yield('title')</title>

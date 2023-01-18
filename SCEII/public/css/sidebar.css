@@ -17,34 +17,55 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     box-shadow: 0 0 30px black;
-    padding-top: 10vh;
+    padding-top: 7%;
     /*border-radius: 3%;*/
 }
 
 .contenido {
-    padding-top: 10vh;
+    padding-top: 8%;
 }
 
 .openside {
-    width: 20%;
+    width: 23%;
 }
 
 .openmain {
-    margin-left: 20%;
+    margin-left: 25%;
 }
 
 .sidebar a {
-    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    font-size: calc(0.65em + 0.65vw);
+    color: white;
     display: block;
     transition: 0.5s;
 }
 
 .sidebar a:hover {
-    color: #f1f1f1;
-    background-color: #46a525;
+    color: #46a525;
+    /*background-color: #46a525;*/
+}
+
+a,
+a:visited {
+    color: white;
+    padding: 0% 3% 0% 10%;
+    /*color: #46a525;*/
+    text-decoration: none;
+}
+
+a.cancelBtn:visited {
+    color: white;
+}
+
+a:hover {
+    color: green;
+}
+
+.user {
+    text-decoration: none;
+    padding: 3% 0% 0% 0%;
+    text-align: center;
 }
 
 .openbtn {
@@ -53,11 +74,12 @@ body {
     right: 0;
     position: fixed;
     width: 100%;
-    font-size: 20px;
+    height: auto;
+    /*font-size: 20px;*/
     cursor: pointer;
     background-color: #17202A;
     color: white;
-    padding: 20px 20px;
+    padding: 2% 2%;
     border: none;
     text-align: left;
     margin-bottom: 1%;
@@ -78,13 +100,11 @@ body {
 .form-lab {
     position: relative;
     background-color: #17202A;
-    background-image: url(../assets/wall-1.jpg);
-    /*filter: blur(0.8px);*/
+    background-image: url(wall-1.jpg);
     width: 100%;
     height: 30vh;
     border-radius: 18px;
     padding: 5% 5%;
-    /*font-size: 2em;*/
     font-weight: bold;
     text-shadow: 0.1em 0.1em 0.2em black;
     box-shadow: 0 0 30px black;
@@ -178,8 +198,14 @@ body {
 }
 
 .icon-logo {
-    width: 12vw;
-    height: 24vh;
+    height: 20vh;
+    border-radius: 50%;
+}
+
+.icon-sm {
+    height: 5vh;
+    border-radius: 50%;
+    float: right;
 }
 
 .inputContainer {
@@ -296,27 +322,6 @@ body {
     border: 2px solid green;
 }
 
-a {
-    color: #46a525;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #46a525;
-}
-
-a.cancelBtn:visited {
-    color: white;
-}
-
-a:hover {
-    color: green;
-}
-
-.icon {
-    width: 300px;
-}
-
 select {
     position: relative;
     background: transparent;
@@ -338,11 +343,16 @@ select option {
 }
 
 .imgTipo {
-    width: 150px;
-    height: 150px;
-    display: block;
+    height: 18vh;
     margin: auto;
     margin-bottom: 2%;
+}
+
+.separador {
+    border: 1px solid white;
+    margin-left: 8%;
+    width: 80%;
+    padding: 0%;
 }
 
 
@@ -356,8 +366,7 @@ select option {
         width: 100vw;
     }
     .icon-logo {
-        width: 70vw;
-        height: 35vh;
+        height: 18vh;
     }
     .openside {
         width: 100vw;
@@ -367,11 +376,15 @@ select option {
         width: 0vw;
         height: 0vh;
     }
+    .openbtn {
+        padding: 5% 5%;
+    }
     .sidebar {
-        padding-top: 25%;
+        padding-top: 20%;
+        font-size: calc(1.2em + 1.2vw);
     }
     .contenido {
-        padding-top: 25%;
+        padding-top: 20%;
     }
 }
 

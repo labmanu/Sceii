@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="../public/css/registro.css?v=<?php rand(); ?>">
 <!-- REGISTRO JS-->
 <script  type="text/javascript" src="{{ asset('public/js/registro.js')}}"></script>
+
 @endsection
+
 
 
 
@@ -40,29 +42,35 @@
 			<div class="inputContainer">
 				<input name="nombre" type="text" class="input-registro" id="nombre" placeholder="a" required />
 				<label class="labelform">
-					<i class="fa-solid fa-user"></i> Nombre:
+					<i class="fa-solid fa-circle-user"></i> Nombre:
 				</label>
 			</div>
+			<p class="labelformErrorAct" id="lblNombre">Llene este campo</p>
 			<div class="inputContainer">
 				<input name="apellidos" type="text" class="input-registro" id="apellidos" placeholder="a" required />
 				<label class="labelform">
-					<i class="fa-solid fa-user"></i> Apellidos:
+					<i class="fa-solid fa-circle-user"></i> Apellidos:
 				</label>
 			</div>
+			<p class="labelformErrorAct" id="lblApellidos">Llene este campo</p>
 			<div class="inputContainer">
 				<input name="correo" type="email" class="input-registro" id="correo" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-envelope"></i> Correo:
 				</label>
 			</div>
+			<p class="labelformErrorAct" id="lblCorreo"> El correo ya se encuentra registrado</p>
+
 			<div class="inputContainer">
 				<input name="clave" type="password" class="input-registro" id="clave" placeholder="a" required />
 				<label class="labelform">
 					<i class="fa-solid fa-key"></i> Contraseña:
 				</label>
 			</div>
+			<p class="labelformErrorAct" id="lblClave">Llene este campo</p>
+
+
 			<select name="genero" id="genero">
-				<option selected>Genero:</option>
 				<option value="f">Femenino</option>
 				<option value="m">Masculino</option>
 				<option value="o">Otro</option>
@@ -73,6 +81,7 @@
 					<i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
 				</label>
 			</div>
+			<p class="labelformErrorAct" id="lblDate">Llene este campo</p>
 			<!-- Clasificación del tipo de registro -->
 			<?php
 				if (isset($_GET['jefeLab'])) {
@@ -88,6 +97,7 @@
 								<i class="fa-solid fa-id-card"></i> No. Control:
 								</label>
 							</div>
+							<p class="labelformErrorAct" id="lblnoControl">El no. Control ya se encuentra registrado</p>
 							<select name="id_carrera" id="carrera" >
 								<option value="1">Licenciatura en Administracion</option>
 								<option value="2">Ingeniería Ambiental</option>
@@ -119,11 +129,12 @@
 					echo '<input name="metodo" type="hidden" id="tipo" value="insertarVisitante" />';
 					echo '
 							<div class="inputContainer">
-								<input name="institucion" type="text" class="input-registro" id="visitante" placeholder="a" />
+								<input name="institucion" id="institucion" type="text" class="input-registro" id="visitante" placeholder="a" />
 								<label id="lblin" class="labelform" >
 								<i class="fa-solid fa-user"></i> Institución:
 								</label>
-							</div>';
+							</div>
+							<p class="labelformErrorAct" id="lblInst">Llene este campo</p>';
 				} else {
 					// header('location: tipoRegistro.php?e=tr'); // OBSOLETO
 				}
@@ -136,7 +147,7 @@
 					</a>
 				</td>
 				<td>
-					<input type="submit"  id="btn_registrar" class="btn-registrar" value="Registrar" />
+					<input  id="btn_registrar" class="btn-registrar" value="Registrar" />
 				</td>
 			</table>
 		</form>

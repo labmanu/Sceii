@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Session;
 
-
 class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -43,6 +42,7 @@ class Controller extends BaseController {
     public function redireccion(){
         if(session()->exists('data')){
             if(session()->get('data')->tipoUsuario === "alumno"){
+                $this->getLaboratorios(session()->get('data')->token);
                 return view('alumno.home');
             }else if(session()->get('data')->tipoUsuario === "docente"){
                 return view('docente.home');
@@ -141,5 +141,25 @@ class Controller extends BaseController {
     public function getLogin(){
         return view('login');
     }
+
+    public function getLaboratorios($token) {
+        $responde = Http::withHeaders([
+            'Authorization' => $token,
+            'Content-Type' => 'application/json'
+        ])->get('https://labmanufactura.net/api-sceii/v1/routes/alumno_laboratorio.php');
+        if ($responde->successful()) {
+            $obj = $responde->Object();
+            Session::put('laboratorios', $obj);
+        } else {
+            echo "ERROR al buscar laboratorios";
+        }
+    }
+
+    public function cars_read(){
+        $responde = Http::get('http://localhost:3000/api/v1/cars');
+        return view('cars_read', ['cars'=>$responde->object()]);
+    }
+
+
 
 }
