@@ -20,17 +20,22 @@ use App\Http\Controllers\ConfirmController;
 // Login
 Route::get('/', function () { // Home / Login
     //Session::forget('data');
+    //Session::flush();
     return view('login');
 })->name('/');
 Route::post('/login', [Controller::class,'signin'])->name('redireccion.login');
+
 //Creo que el /inicio se puede dejar como raiz pero se deberia cambiar la forma de cerrar session
 Route::get('/inicio', [Controller::class,'redireccion'])->name('redireccion');
+Route::get('/laboratorio/{id}', [Controller::class,'laboratorio'])->name('laboratorio');
 
 // Registro
 Route::get('/registro', function () { // Tipo de registro
+    //Session::flush();
     return view('registro.tipo');
 });
 Route::get('/registro/{tipo}', function () { // Interfaz dinámica para el registro
+    //Session::flush();
     return view('registro.registro');
 });
 

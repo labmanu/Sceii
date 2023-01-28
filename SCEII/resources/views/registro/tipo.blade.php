@@ -2,6 +2,7 @@
 @section('title', 'Tipo de Registro')
 
 @section('headers')
+
 <!-- Icono de la página -->
 <link rel="icon" href="public/assets/logo.png">
 <!--<link rel="stylesheet" type="text/css" href="public/css/registro.css">-->

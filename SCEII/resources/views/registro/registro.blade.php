@@ -1,6 +1,8 @@
 @extends('templates.registro')
 @section('title', 'Tipo de Registro')
+
 @section('headers')
+
 <!-- Icono de la página -->
 <link rel="icon" href="../public/assets/logo.png">
 <!--<link rel="stylesheet" type="text/css" href="../public/css/registro.css">-->
@@ -9,9 +11,6 @@
 <script  type="text/javascript" src="{{ asset('public/js/registro.js')}}"></script>
 
 @endsection
-
-
-
 
 @section('content')
 <div class="formulario">
@@ -36,7 +35,7 @@
 			}
 			?> 
 		</div>
-		<form  class="form-registro reg">
+		<form class="form-registro reg">
 			<input type="hidden" name="operacion" value="registro" />
 			<h3 class="titulo py-2">Registrarse</h3>
 			<div class="inputContainer">
@@ -147,7 +146,7 @@
 					</a>
 				</td>
 				<td>
-					<input  id="btn_registrar" class="btn-registrar" value="Registrar" />
+					<input id="btn_registrar" class="btn-registrar" value="Registrar" />
 				</td>
 			</table>
 		</form>

@@ -49,11 +49,12 @@ class Controller extends BaseController {
             }else if(session()->get('data')->tipoUsuario === "visitante"){
                 return view('visitante.home');
             }else{
-                return view('login'); // Tipo de usuario NO valido
+                echo "Tipo de usuario NO valido";
+                //header("location: /SCEII"); // Tipo de usuario NO valido
             }
         }else{
-            return view('login');
-            //return view('login'); // No existe la session
+            //echo "No existe la session";
+            header("location: /SCEII");
         }
     }
 
@@ -139,7 +140,9 @@ class Controller extends BaseController {
     }
 
     public function getLogin(){
-        return view('login');
+        //return view('login');
+        //header("location: /SCEII");
+        echo "idk";
     }
 
     public function getLaboratorios($token) {
@@ -152,14 +155,32 @@ class Controller extends BaseController {
             Session::put('laboratorios', $obj);
         } else {
             echo "ERROR al buscar laboratorios";
+            //header("location: /SCEII");
         }
     }
 
-    public function cars_read(){
-        $responde = Http::get('http://localhost:3000/api/v1/cars');
-        return view('cars_read', ['cars'=>$responde->object()]);
+    public function laboratorio($id) {
+        if (session()->exists('data')) {
+            //echo $id;
+            $token = session()->get('data')->token;
+            $responde = Http::withHeaders([
+                'Authorization' => $token,
+                'Content-Type' => 'application/json'
+            ])->get('https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php?id='.$id);
+            if ($responde->successful()) {
+                $obj = $responde->Object();
+                $lab = $obj->data[0];
+                //var_dump($obj);
+                Session::put('laboratorio', $lab);
+                return view('alumno.laboratorio');
+            } else {
+                echo "ERROR al buscar laboratorios";
+                //header("location: /SCEII");
+            }
+        }else{
+            //echo "ERROR no existe el token";
+            header("location: /SCEII");
+        }
     }
-
-
 
 }

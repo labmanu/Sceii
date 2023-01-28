@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--=============== FAVICON ===============-->
-    <link
-      rel="shortcut icon"
-      href="assets/img/logo.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
 
     <!--=============== REMIX ICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -25,575 +19,532 @@
 
 
     <title>SCEII | Inicio</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#" class="nav__logo">
-         <img src="assets/img/logo.png" width="40" height="40" id="logo_img"> SCEII
-        </a>
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/img/logo.png" width="40" height="40" id="logo_img"> SCEII
+            </a>
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">Inicio</a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">Acerca de</a>
-            </li>
-            <li class="nav__item">
-              <a href="#products" class="nav__link">Infraestructura</a>
-            </li>
-            <li class="nav__item">
-                <a href="#steps" class="nav__link">Plan de estudio</a>
-              </li>
-            <li class="nav__item">
-              <a href="#faqs" class="nav__link">Preguntas</a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">Contactanos</a>
-            </li>
-          </ul>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Acerca de</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#products" class="nav__link">Infraestructura</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#steps" class="nav__link">Plan de estudio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#faqs" class="nav__link">Preguntas</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contactanos</a>
+                    </li>
+                </ul>
 
-          <div class="nav__close" id="nav-close">
-            <i class="ri-close-line"></i>
-          </div>
-        </div>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
 
-        <div class="nav__btns">
-          <!-- Theme change button -->
-          <i class="ri-moon-line change-theme" id="theme-button"></i>
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
 
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-line"></i>
-          </div>
-        </div>
-      </nav>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home" id="home">
-        <div class="home__container container grid">
-          <img src="assets/img/home.png" alt="" class="home__img" />
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <img src="assets/img/home.png" alt="" class="home__img" />
 
-          <div class="home__data">
-            <h2 class="home__title">
-              Sistema de control estudiantil de ingenieria industrial
-            </h2>
-            <p class="home__description">
-              Es un sistema del departamento de ingeniería industrial del
-              Tecnológico Nacional de México en Celaya, con el fin de llevar el
-              control de los alumnos, docentes, visitantes, etc. Que ingresan a
-              los diversos laboratorios con los que cuenta el departamento
-            </p>
-            <a href="https://labmanufactura.net/SCEII/" class="button button--flex">
+                <div class="home__data">
+                    <h2 class="home__title">
+                        Sistema de control estudiantil de ingenieria industrial
+                    </h2>
+                    <p class="home__description">
+                        Es un sistema del departamento de ingeniería industrial del Tecnológico Nacional de México en Celaya, con el fin de llevar el control de los alumnos, docentes, visitantes, etc. Que ingresan a los diversos laboratorios con los que cuenta el departamento
+                    </p>
+                    <a href="https://labmanufactura.net/SCEII/" class="button button--flex">
               Iniciar <i class="ri-arrow-right-down-line button__icon"></i>
             </a>
-            <a href="#about" class="button button--flex">
+                    <a href="#about" class="button button--flex">
                 Versión móvil <i class="ri-android-fill"></i>
               </a>
-          </div>
+                </div>
 
-          <div class="home__social">
-            <span class="home__social-follow">Siguenos</span>
+                <div class="home__social">
+                    <span class="home__social-follow">Siguenos</span>
 
-            <div class="home__social-links">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                class="home__social-link"
-              >
-                <i class="ri-facebook-fill"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                class="home__social-link"
-              >
-                <i class="ri-instagram-line"></i>
-              </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                class="home__social-link"
-              >
-                <i class="ri-twitter-fill"></i>
-              </a>
+                    <div class="home__social-links">
+                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!--==================== Acerca de ====================-->
-      <section class="about section container" id="about">
-        <div class="about__container grid">
-          <img src="assets/img/about.jpg" alt="" class="about__img" />
+        <!--==================== Acerca de ====================-->
+        <section class="about section container" id="about">
+            <div class="about__container grid">
+                <img src="assets/img/depa_industrial.jpeg" alt="" class="about__img" />
 
-          <div class="about__data">
-            <h2 class="section__title about__title">¿Quienes somos?</h2>
+                <div class="about__data">
+                    <h2 class="section__title about__title">¿Quienes somos?</h2>
 
-            <p class="about__description">
-              Es un sistema desarrollado por el departamento de ingeniería
-              industrial supervisado por el docente Luis Gerardo Romero Chávez
-              del Tecnológico Nacional de México en Celaya, con el fin de llevar
-              el control de los alumnos, docentes, visitantes, etc. Que ingresan
-              a los diversos laboratorios con los que cuenta el departamento.
-            </p>
+                    <p class="about__description">
+                        Es un sistema desarrollado por el departamento de ingeniería industrial supervisado por el docente Luis Gerardo Romero Chávez del Tecnológico Nacional de México en Celaya, con el fin de llevar el control de los alumnos, docentes, visitantes, etc. Que
+                        ingresan a los diversos laboratorios con los que cuenta el departamento.
+                    </p>
 
-            <div class="about__details">
-              <p class="about__details-description">
-                <i class="ri-checkbox-fill about__details-icon"></i>
-                No sé que poner
-              </p>
-              <p class="about__details-description">
-                <i class="ri-checkbox-fill about__details-icon"></i>
-                No sé que poner x2
-              </p>
-              <p class="about__details-description">
-                <i class="ri-checkbox-fill about__details-icon"></i>
-                No sé que poner x3
-              </p>
-              <p class="about__details-description">
-                <i class="ri-checkbox-fill about__details-icon"></i>
-                No sé que poner x4
-              </p>
-            </div>
+                    <div class="about__details">
+                        <p class="about__details-description">
+                            <i class="ri-checkbox-fill about__details-icon"></i> No sé que poner
+                        </p>
+                        <p class="about__details-description">
+                            <i class="ri-checkbox-fill about__details-icon"></i> No sé que poner x2
+                        </p>
+                        <p class="about__details-description">
+                            <i class="ri-checkbox-fill about__details-icon"></i> No sé que poner x3
+                        </p>
+                        <p class="about__details-description">
+                            <i class="ri-checkbox-fill about__details-icon"></i> No sé que poner x4
+                        </p>
+                    </div>
 
-            <a href="https://labmanufactura.net/SCEII/" class="button--link button--flex">
+                    <a href="https://labmanufactura.net/SCEII/" class="button--link button--flex">
               Iniciar <i class="ri-arrow-right-down-line button__icon"></i>
             </a>
-          </div>
-        </div>
-      </section>
+                </div>
+            </div>
+        </section>
 
-      <!-- Infraestructura-->
-      <section class="product section container" id="products">
-        <h2 class="section__title-center about__title">Infraestructura</h2>
+        <!-- Infraestructura-->
+        <section class="product section container" id="products">
+            <h2 class="section__title-center about__title">Infraestructura</h2>
 
-        <p class="product__description">
-          Cuenta con laboratorios equipados con tecnología de primer nivel en el
-          desarrollo de competencias de las asignaturas que, conforman el plan
-          de estudios.
-        </p>
+            <p class="product__description">
+                Cuenta con laboratorios equipados con tecnología de primer nivel en el desarrollo de competencias de las asignaturas que, conforman el plan de estudios.
+            </p>
 
-        <div class="product__container grid">
-          <article class="product__card">
-            <img src="assets/img/lab1.png" alt="" class="product__img" />
+            <div class="product__container grid">
+                <article class="product__card">
+                    <img src="assets/img/manufactura.jpeg" alt="" class="product__img" />
 
-            <h3 class="product__title">Laboratorio de Métodos</h3>
-            <button class="button--flex product__button">
+                    <h3 class="product__title">Laboratorio de Manufactura</h3>
+                    <button class="button--flex product__button">
               <i class="ri-star-fill"></i>
             </button>
-          </article>
+                </article>
 
-          <article class="product__card">
-            <img src="assets/img/lab2.png" alt="" class="product__img" />
+                <article class="product__card">
+                    <img src="assets/img/ergonomia.jpeg" alt="" class="product__img" />
 
-            <h3 class="product__title">Laboratorio de Ergonomía</h3>
-            <button class="button--flex product__button">
+                    <h3 class="product__title">Laboratorio de Ergonomía</h3>
+                    <button class="button--flex product__button">
               <i class="ri-star-fill"></i>
             </button>
-          </article>
+                </article>
 
-          <article class="product__card">
-            <img src="assets/img/lab3.png" alt="" class="product__img" />
+                <article class="product__card">
+                    <img src="assets/img/metodos.jpeg" alt="" class="product__img" />
 
-            <h3 class="product__title">Laboratorio de Manufactura</h3>
+                    <h3 class="product__title">Laboratorio de Métodos </h3>
 
-            <button class="button--flex product__button">
+                    <button class="button--flex product__button">
               <i class="ri-star-fill"></i>
             </button>
-          </article>
+                </article>
 
-          <article class="product__card">
-            <img src="assets/img/lab4.png" alt="" class="product__img" />
+                <article class="product__card">
+                    <img src="assets/img/plasticos.jpeg" alt="" class="product__img" />
 
-            <h3 class="product__title">Laboratorio de Simulación</h3>
+                    <h3 class="product__title">Laboratorio de plasticos</h3>
 
-            <button class="button--flex product__button">
+                    <button class="button--flex product__button">
               <i class="ri-star-fill"></i>
             </button>
-          </article>
-        </div>
-      </section>
-
-      <!--==================== Plan de estudios ====================-->
-      <section class="steps section container" id="steps">
-        <div class="steps__bg">
-          <h2 class="section__title-center steps__title">Plan de estudios</h2>
-
-          <div class="steps__container grid">
-            <div class="steps__card">
-              <div class="steps__card-number">01</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Fundamentos de investigación
-                </li>
-                <li class="steps__card-description">Taller de ética</li>
-                <li class="steps__card-description">
-                  Taller de herramientas intelectuales
-                </li>
-                <li class="steps__card-description">Cálculo diferencial</li>
-                <li class="steps__card-description">Química</li>
-                <li class="steps__card-description">Dibujo industrial</li>
-                <li class="steps__card-description">Tutoría</li>
-                <li class="steps__card-description">
-                  English for life and Work I
-                </li>
-              </ul>
+                </article>
             </div>
+        </section>
 
-            <div class="steps__card">
-              <div class="steps__card-number">02</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Electricidad y electrónica industrial
-                </li>
-                <li class="steps__card-description">
-                  Propiedad de los materiales
-                </li>
-                <li class="steps__card-description">Economía</li>
-                <li class="steps__card-description">Calculo integral</li>
-                <li class="steps__card-description">
-                  Probabilidad y estadística
-                </li>
-                <li class="steps__card-description">
-                  Análisis de la realidad nacional
-                </li>
-                <li class="steps__card-description">Taller de liderazgo</li>
-                <li class="steps__card-description">
-                  English for life and Work II
-                </li>
-              </ul>
+        <!--==================== Plan de estudios ====================-->
+        <section class="steps section container" id="steps">
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">Plan de estudios</h2>
+
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number">01</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Fundamentos de investigación
+                            </li>
+                            <li class="steps__card-description">Taller de ética</li>
+                            <li class="steps__card-description">
+                                Taller de herramientas intelectuales
+                            </li>
+                            <li class="steps__card-description">Cálculo diferencial</li>
+                            <li class="steps__card-description">Química</li>
+                            <li class="steps__card-description">Dibujo industrial</li>
+                            <li class="steps__card-description">Tutoría</li>
+                            <li class="steps__card-description">
+                                English for life and Work I
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">02</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Electricidad y electrónica industrial
+                            </li>
+                            <li class="steps__card-description">
+                                Propiedad de los materiales
+                            </li>
+                            <li class="steps__card-description">Economía</li>
+                            <li class="steps__card-description">Calculo integral</li>
+                            <li class="steps__card-description">
+                                Probabilidad y estadística
+                            </li>
+                            <li class="steps__card-description">
+                                Análisis de la realidad nacional
+                            </li>
+                            <li class="steps__card-description">Taller de liderazgo</li>
+                            <li class="steps__card-description">
+                                English for life and Work II
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">03</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Metrología y normalización
+                            </li>
+                            <li class="steps__card-description">Algebra lineal</li>
+                            <li class="steps__card-description">
+                                Algoritmos y lenguajes de programación
+                            </li>
+                            <li class="steps__card-description">Calculo vectorial</li>
+                            <li class="steps__card-description">
+                                Estadística inferencial I
+                            </li>
+                            <li class="steps__card-description">Procesos de fabricación</li>
+                            <li class="steps__card-description">Desarrollo sustentable</li>
+                            <li class="steps__card-description">
+                                English for life and Work III
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">04</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">Mercadotecnia</li>
+                            <li class="steps__card-description">Investigación de operaciones I</li>
+                            <li class="steps__card-description">Física</li>
+                            <li class="steps__card-description">Gestión de costos</li>
+                            <li class="steps__card-description">
+                                Estadística Inferencial II
+                            </li>
+                            <li class="steps__card-description">Estudio de trabajo I</li>
+                            <li class="steps__card-description">Ingeniería de Sistemas</li>
+                            <li class="steps__card-description">
+                                English for life and Work IV
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">05</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Administración de proyectos
+                            </li>
+                            <li class="steps__card-description">
+                                Investigación de operaciones II
+                            </li>
+                            <li class="steps__card-description">
+                                Administración de operaciones I
+                            </li>
+                            <li class="steps__card-description">Ingeniería económica</li>
+                            <li class="steps__card-description">
+                                Control estadístico de la calidad
+                            </li>
+                            <li class="steps__card-description">Estudio del trabajo II</li>
+                            <li class="steps__card-description">
+                                Higiene y seguridad industrial
+                            </li>
+                            <li class="steps__card-description">
+                                English for life and Work V
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">06</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Taller de investigación I
+                            </li>
+                            <li class="steps__card-description">Sistemas de manufactura</li>
+                            <li class="steps__card-description">
+                                Administración de operaciones II
+                            </li>
+                            <li class="steps__card-description">
+                                Gestión de los sistemas de calidad
+                            </li>
+                            <li class="steps__card-description">
+                                Estrategias para la innovación
+                            </li>
+                            <li class="steps__card-description">Ergonomía</li>
+                            <li class="steps__card-description">
+                                Variación en manufactura
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">07</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                El emprendedor y la innovación
+                            </li>
+                            <li class="steps__card-description">
+                                Calidad aplicada a la gestión empresarial
+                            </li>
+                            <li class="steps__card-description">Gestión estratégica</li>
+                            <li class="steps__card-description">
+                                Materia #1 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">
+                                Materia #1 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">08</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">Plan de negocios</li>
+                            <li class="steps__card-description">
+                                Materia #3 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">
+                                Materia #4 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">
+                                Materia #5 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">
+                                Materia #6 módulo especialidad
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+                    <div class="steps__card">
+                        <div class="steps__card-number">09</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Residencias profesionales
+                            </li>
+                            <li class="steps__card-description">
+                                Actividades complementarias de formación integral desde el primer semestre con valor curricular.
+                            </li>
+                            <li class="steps__card-description">
+                                Servicio social al contar con 70% de créditos.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="steps__card">
-              <div class="steps__card-number">03</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Metrología y normalización
-                </li>
-                <li class="steps__card-description">Algebra lineal</li>
-                <li class="steps__card-description">
-                  Algoritmos y lenguajes de programación
-                </li>
-                <li class="steps__card-description">Calculo vectorial</li>
-                <li class="steps__card-description">
-                  Estadística inferencial I
-                </li>
-                <li class="steps__card-description">Procesos de fabricación</li>
-                <li class="steps__card-description">Desarrollo sustentable</li>
-                <li class="steps__card-description">
-                  English for life and Work III
-                </li>
-              </ul>
+        <section class="section container">
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    Modulos de especialidad <br /> Calidad
+                </h2>
+
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number">07</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Taller de investigación II
+                            </li>
+                            <li class="steps__card-description">Simulación</li>
+                            <li class="steps__card-description">
+                                Planeación y diseño de instalaciones
+                            </li>
+                            <li class="steps__card-description">Planeación financiera</li>
+                            <li class="steps__card-description">Tópicos de calidad I</li>
+                            <li class="steps__card-description">
+                                Logística y cadenas de suministro
+                            </li>
+                            <li class="steps__card-description">
+                                Administración del mantenimiento
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">08</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">Tópicos de calidad II</li>
+                            <li class="steps__card-description">Relaciones industriales</li>
+                            <li class="steps__card-description">
+                                Formulación y evaluación de proyectos
+                            </li>
+                            <li class="steps__card-description">
+                                Temas selectos de calidad
+                            </li>
+                            <li class="steps__card-description">
+                                Plan avanzado de calidad
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="steps__card">
-              <div class="steps__card-number">04</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">Mercadotecnia</li>
-                <li class="steps__card-description">Investigación de operaciones I</li>
-                <li class="steps__card-description">Física</li>
-                <li class="steps__card-description">Gestión de costos</li>
-                <li class="steps__card-description">
-                  Estadística Inferencial II
-                </li>
-                <li class="steps__card-description">Estudio de trabajo I</li>
-                <li class="steps__card-description">Ingeniería de Sistemas</li>
-                <li class="steps__card-description">
-                  English for life and Work IV
-                </li>
-              </ul>
+        <section class="section container">
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    Modulos de especialidad <br /> Manufactura
+                </h2>
+
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number">07</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">
+                                Taller de investigación II
+                            </li>
+                            <li class="steps__card-description">Simulación</li>
+                            <li class="steps__card-description">
+                                Planeación y diseño de instalaciones
+                            </li>
+                            <li class="steps__card-description">Planeación financiera</li>
+                            <li class="steps__card-description">
+                                Logística y cadenas de suministro
+                            </li>
+                            <li class="steps__card-description">
+                                Administración del mantenimiento
+                            </li>
+                            <li class="steps__card-description">
+                                Automatización del sistema de producción
+                            </li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">08</div>
+                        <h3 class="steps__card-title">Materias</h3>
+                        <ul class="ul_plan">
+                            <li class="steps__card-description">Ingeniería de diseño</li>
+                            <li class="steps__card-description">Relaciones industriales</li>
+                            <li class="steps__card-description">
+                                Formulación y evaluación de proyectos
+                            </li>
+                            <li class="steps__card-description">Proyecto de manufactura</li>
+                            <li class="steps__card-description">Manufactura avanzada</li>
+                            <li class="steps__card-description">Lengua extranjera</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="steps__card">
-              <div class="steps__card-number">05</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Administración de proyectos
-                </li>
-                <li class="steps__card-description">
-                  Investigación de operaciones II
-                </li>
-                <li class="steps__card-description">
-                  Administración de operaciones I
-                </li>
-                <li class="steps__card-description">Ingeniería económica</li>
-                <li class="steps__card-description">
-                  Control estadístico de la calidad
-                </li>
-                <li class="steps__card-description">Estudio del trabajo II</li>
-                <li class="steps__card-description">
-                  Higiene y seguridad industrial
-                </li>
-                <li class="steps__card-description">
-                  English for life and Work V
-                </li>
-              </ul>
-            </div>
+        <!--==================== Preguntas ====================-->
+        <section class="questions section" id="faqs">
+            <h2 class="section__title-center questions__title container">
+                Preguntas frecuentes
+            </h2>
 
-            <div class="steps__card">
-              <div class="steps__card-number">06</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Taller de investigación I
-                </li>
-                <li class="steps__card-description">Sistemas de manufactura</li>
-                <li class="steps__card-description">
-                  Administración de operaciones II
-                </li>
-                <li class="steps__card-description">
-                  Gestión de los sistemas de calidad
-                </li>
-                <li class="steps__card-description">
-                  Estrategias para la innovación
-                </li>
-                <li class="steps__card-description">Ergonomía</li>
-                <li class="steps__card-description">
-                  Variación en manufactura
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
+            <div class="questions__container container grid">
+                <div class="questions__group">
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">Perfil Profesional</h3>
+                        </header>
 
-            <div class="steps__card">
-              <div class="steps__card-number">07</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  El emprendedor y la innovación
-                </li>
-                <li class="steps__card-description">
-                  Calidad aplicada a la gestión empresarial
-                </li>
-                <li class="steps__card-description">Gestión estratégica</li>
-                <li class="steps__card-description">
-                  Materia #1 módulo especialidad
-                </li>
-                <li class="steps__card-description">
-                  Materia #1 módulo especialidad
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
+                        <div class="questions__content">
+                            <p class="questions__description">
+                                El y la ingeniero/a industrial es un profesional que posee una sólida fundamentación en las ciencias básicas y técnicas de ingeniería, una alta sensibilidad social y una suficiente estructura humanística que lo capacitan para diseñar, planear, organizar,
+                                dirigir y controlar cualquier tipo de organización y sus diferentes unidades de negocios, crear sus propias oportunidades de negocio, El y la ingeniero/a industrial está en la capacidad de promover, adaptar y liderar procesos
+                                de mejoramiento en armonía con el acelerado cambio del entorno, buscando siempre el uso óptimo delos recursos
+                                <br /> Las y los egresados de Ingeniería Industrial serán profesionistas que contribuyan en el desarrollo sustentable, con una visión sistemática, respondiendo a los retos que presentan con los constantes cambios en los
+                                sistemas de producción de bienes y servicios en un entorno global, con ética y comprometidos con la sociedad.
+                            </p>
+                        </div>
+                    </div>
 
-            <div class="steps__card">
-              <div class="steps__card-number">08</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">Plan de negocios</li>
-                <li class="steps__card-description">
-                  Materia #3 módulo especialidad
-                </li>
-                <li class="steps__card-description">
-                  Materia #4 módulo especialidad
-                </li>
-                <li class="steps__card-description">
-                  Materia #5 módulo especialidad
-                </li>
-                <li class="steps__card-description">
-                  Materia #6 módulo especialidad
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
-            <div class="steps__card">
-              <div class="steps__card-number">09</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Residencias profesionales
-                </li>
-                <li class="steps__card-description">
-                  Actividades complementarias de formación integral desde el
-                  primer semestre con valor curricular.
-                </li>
-                <li class="steps__card-description">
-                  Servicio social al contar con 70% de créditos.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">Perfil de Ingreso</h3>
+                        </header>
 
-      <section class="section container">
-        <div class="steps__bg">
-          <h2 class="section__title-center steps__title">
-            Modulos de especialidad <br />
-            Calidad
-          </h2>
+                        <div class="questions__content">
+                            <p class="questions__description">
+                                Las y los estudiantes al ingresar deberá tener conocimientos de cultura general; así como habilidades matemáticas y de comunicación oral y escrita. Deberán contar con la capacidad de reacción ante diferentes situaciones con actitud proactiva y responsable.
+                            </p>
+                        </div>
+                    </div>
 
-          <div class="steps__container grid">
-            <div class="steps__card">
-              <div class="steps__card-number">07</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Taller de investigación II
-                </li>
-                <li class="steps__card-description">Simulación</li>
-                <li class="steps__card-description">
-                  Planeación y diseño de instalaciones
-                </li>
-                <li class="steps__card-description">Planeación financiera</li>
-                <li class="steps__card-description">Tópicos de calidad I</li>
-                <li class="steps__card-description">
-                  Logística y cadenas de suministro
-                </li>
-                <li class="steps__card-description">
-                  Administración del mantenimiento
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">Perfil de Egreso</h3>
+                        </header>
 
-            <div class="steps__card">
-              <div class="steps__card-number">08</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">Tópicos de calidad II</li>
-                <li class="steps__card-description">Relaciones industriales</li>
-                <li class="steps__card-description">
-                  Formulación y evaluación de proyectos
-                </li>
-                <li class="steps__card-description">
-                  Temas selectos de calidad
-                </li>
-                <li class="steps__card-description">
-                  Plan avanzado de calidad
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section container">
-        <div class="steps__bg">
-          <h2 class="section__title-center steps__title">
-            Modulos de especialidad <br />
-            Manufactura
-          </h2>
-
-          <div class="steps__container grid">
-            <div class="steps__card">
-              <div class="steps__card-number">07</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">
-                  Taller de investigación II
-                </li>
-                <li class="steps__card-description">Simulación</li>
-                <li class="steps__card-description">
-                  Planeación y diseño de instalaciones
-                </li>
-                <li class="steps__card-description">Planeación financiera</li>
-                <li class="steps__card-description">
-                  Logística y cadenas de suministro
-                </li>
-                <li class="steps__card-description">
-                  Administración del mantenimiento
-                </li>
-                <li class="steps__card-description">
-                  Automatización del sistema de producción
-                </li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
-
-            <div class="steps__card">
-              <div class="steps__card-number">08</div>
-              <h3 class="steps__card-title">Materias</h3>
-              <ul class="ul_plan">
-                <li class="steps__card-description">Ingeniería de diseño</li>
-                <li class="steps__card-description">Relaciones industriales</li>
-                <li class="steps__card-description">
-                  Formulación y evaluación de proyectos
-                </li>
-                <li class="steps__card-description">Proyecto de manufactura</li>
-                <li class="steps__card-description">Manufactura avanzada</li>
-                <li class="steps__card-description">Lengua extranjera</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== Preguntas ====================-->
-      <section class="questions section" id="faqs">
-        <h2 class="section__title-center questions__title container">
-          Preguntas frecuentes
-        </h2>
-
-        <div class="questions__container container grid">
-          <div class="questions__group">
-            <div class="questions__item">
-              <header class="questions__header">
-                <i class="ri-add-line questions__icon"></i>
-                <h3 class="questions__item-title">Perfil Profesional</h3>
-              </header>
-
-              <div class="questions__content">
-                <p class="questions__description">
-                  El y la ingeniero/a industrial es un profesional que posee una
-                  sólida fundamentación en las ciencias básicas y técnicas de
-                  ingeniería, una alta sensibilidad social y una suficiente
-                  estructura humanística que lo capacitan para diseñar, planear,
-                  organizar, dirigir y controlar cualquier tipo de organización
-                  y sus diferentes unidades de negocios, crear sus propias
-                  oportunidades de negocio, El y la ingeniero/a industrial está
-                  en la capacidad de promover, adaptar y liderar procesos de
-                  mejoramiento en armonía con el acelerado cambio del entorno,
-                  buscando siempre el uso óptimo delos recursos
-                  <br />
-                  Las y los egresados de Ingeniería Industrial serán
-                  profesionistas que contribuyan en el desarrollo sustentable,
-                  con una visión sistemática, respondiendo a los retos que
-                  presentan con los constantes cambios en los sistemas de
-                  producción de bienes y servicios en un entorno global, con
-                  ética y comprometidos con la sociedad.
-                </p>
-              </div>
-            </div>
-
-            <div class="questions__item">
-              <header class="questions__header">
-                <i class="ri-add-line questions__icon"></i>
-                <h3 class="questions__item-title">Perfil de Ingreso</h3>
-              </header>
-
-              <div class="questions__content">
-                <p class="questions__description">
-                  Las y los estudiantes al ingresar deberá tener conocimientos
-                  de cultura general; así como habilidades matemáticas y de
-                  comunicación oral y escrita. Deberán contar con la capacidad
-                  de reacción ante diferentes situaciones con actitud proactiva
-                  y responsable.
-                </p>
-              </div>
-            </div>
-
-            <div class="questions__item">
-              <header class="questions__header">
-                <i class="ri-add-line questions__icon"></i>
-                <h3 class="questions__item-title">Perfil de Egreso</h3>
-              </header>
-
-              <div class="questions__content">
-                <p class="questions__description">
-                  <b
-                    >Al término de sus estudios, el y la Ingeniero/a Industrial
+                        <div class="questions__content">
+                            <p class="questions__description">
+                                <b>Al término de sus estudios, el y la Ingeniero/a Industrial
                     será capaz de:</b
                   >
                   <br />

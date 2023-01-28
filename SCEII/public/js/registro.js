@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     const url = "https://labmanufactura.net/api-sceii/v1/routes/registro.php?tipo=";
     const btnRegistrar = document.getElementById('btn_registrar');
     const tipo = document.getElementById('tipo').value;
@@ -25,14 +26,11 @@ $(document).ready(function() {
     clave.addEventListener('keyup', updateClave);
     date.addEventListener('change', updateDate);
 
-
-
     if (tipo == "insertarAlumno")
         btnRegistrar.addEventListener('click', alumRegistrar)
     else
     if (tipo == "insertarDocente") {
         btnRegistrar.addEventListener('click', docenteRegistrar)
-        alert("no")
     } else
         btnRegistrar.addEventListener('click', visitanteRegistrar)
 
