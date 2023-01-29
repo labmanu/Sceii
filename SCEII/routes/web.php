@@ -21,7 +21,11 @@ use App\Http\Controllers\ConfirmController;
 Route::get('/', function () { // Home / Login
     //Session::forget('data');
     //Session::flush();
-    return view('login');
+    session_start();
+    if(isset($_SESSION["data"]))
+        return view('alumno.home');
+    else
+        return view('login');
 })->name('/');
 Route::post('/login', [Controller::class,'signin'])->name('redireccion.login');
 
@@ -41,11 +45,16 @@ Route::get('/registro/{tipo}', function () { // Interfaz dinámica para el regis
 
 Route::post('/registrar', [Controller::class,'nuevoRegistro'])->name('registrar.nuevo');
 Route::get('/registrado', [Controller::class,'getLogin'])->name('registrado');
+Route::get("/logOut", [Controller::class,'logOut'])->name("logOut");
 
 // Confirmar cuenta
 Route::get('/confirmarCuenta/{token}',  [ConfirmController::class,'start'])->name('confirmarCuenta');
 
 // Alumno
 Route::get('/alumno', function () { // Alumno
+    session_start();
+    if(isset($_SESSION["data"]))
     return view('alumno.home');
+    else
+    header("location: /SCEII");
 });

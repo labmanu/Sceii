@@ -6,7 +6,8 @@
     /*laboratorios*/
 
     body {
-        max-height: 100vh;
+        height: 100%;
+        max-height: auto;
         font-family: "Poppins", sans-serif;
         box-sizing: border-box;
         background-color: #131414;
@@ -58,7 +59,8 @@
     }
 
     .home {
-        padding: 6% 5% 0% 5%;
+        padding: 6% 5% 1% 5%;
+        height: 100%;
     }
 
     .fondolab {
@@ -74,6 +76,7 @@
         background-color: #17202A;
         width: 100%;
         height: 50vh;
+        max-height: auto;
         border-radius: 18px;
         padding: 0;
         font-weight: bold;
@@ -83,16 +86,23 @@
     }
 
     .contentlab {
-        padding: 5%;
+        padding: 3% 5% 5% 5%;
+        height: auto;
     }
 
     .nomlab {
-        font-size: calc(0.7em + 0.7vw);
+        font-size: calc(0.8em + 0.8vw);
         font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .jefelab {
         font-size: calc(0.5em + 0.5vw);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .icon-detalle {
@@ -101,6 +111,7 @@
         text-align: center;
         font-size: calc(0.8em + 0.8vw);
         padding-top: 2%;
+        margin-bottom: 2%;
         height: 6vh;
         width: 6vh;
         margin: 0 0 0 auto;
@@ -219,7 +230,7 @@
         cursor: pointer;
         background-color: #17202A;
         color: white;
-        padding: 1% 1.7%;
+        padding: 1% 2% 1% 3%;
         border: none;
         text-align: left;
         margin-bottom: 1%;
@@ -246,7 +257,7 @@
         padding: 10px 16px;
         font-size: 24px;
         line-height: 1.33;
-        border-radius: 35px;
+        border-radius: 50%;
     }
 
     .lab-cont {
@@ -283,7 +294,7 @@
         background-color: #46a525;
         font-weight: bold;
         color: white;
-        border-radius: 60px;
+        /*border-radius: 60px;*/
         cursor: pointer;
         margin-top: 2%;
         margin-bottom: 2%;
@@ -351,17 +362,24 @@
     }
 
     div.scrollmenu {
-        background-color: #333;
+        height: auto;
         overflow: auto;
         white-space: nowrap;
     }
 
     div.scrollmenu a {
+        font-size: calc(1.4em + 1.4vw);
+        background-color: #333;
         display: inline-block;
         color: white;
         text-align: center;
-        padding: 14px;
+        padding: 2%;
+        height: 15vh;
+        width: 15vh;
+        border-radius: 50%;
         text-decoration: none;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 
     div.scrollmenu a:hover {
@@ -422,7 +440,7 @@
     .wrapper .card /*.text*/ {
         background: -webkit-linear-gradient(left, #34E237, #09df70);
         background-clip: text;
-        -webkit-text-fill-color: white;
+        -webkit-text-fill-color: transparent;
     }
 
     .circle .box span {
@@ -463,6 +481,7 @@
         }
     }*/
 
+
     /* SMARTPHONE */
 
     @media screen and (max-width: 767px) {
@@ -479,10 +498,13 @@
         }
 
         .icon-sm {
-            padding-top: auto;
-            padding-bottom: auto;
-            height: 7vh;
-            width: 7vh;
+            margin-top: 4%;
+            height: 8vh;
+            width: 8vh;
+        }
+
+        .btn-circle {
+            margin-top: 5%;
         }
 
         .openside {
@@ -497,7 +519,7 @@
 
         .openbtn {
             font-size: calc(1em + 1vw);
-            padding: 3% 3%;
+            padding: 1% 3% 3% 4%;
         }
 
         .sidebar {
@@ -531,6 +553,10 @@
         .icon-detalle {
             height: 5vh;
             width: 5vh;
+        }
+        div.scrollmenu a {
+            font-size: calc(2.5em + 2.5vw);
+            padding-top: 4%;
         }
     }
 

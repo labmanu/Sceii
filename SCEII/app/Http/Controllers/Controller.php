@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Session;
+//use Session;
 
 class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -26,31 +26,36 @@ class Controller extends BaseController {
              Session::put                     mantiene la session abierta         (temporal)
              redirect()->route()->with()      desaparece al recargar la pagina    (uso unico)
             */
+
             $obj = $responde->Object();
             $message = $obj->message[0];
             $data = $obj->data[0];
-            Session::put('data', $data);
+            //Session::put('data', $data);
+            session_start();
+            $_SESSION["data"]= $data;
+            //$_SESSION["newsession"]=$value;
             return redirect()->route('redireccion')->with('message', $message);
         }else {
-            return redirect()->route('/')->with('error', 'Datos incorrectos');
+            //return redirect()->route('/')->with('error', 'Datos incorrectos');
             //return view('login', ['e'=>'Datos incorrectos']);
-           // return view('login', ['error', 'Datos incorrectos']);
-           
+            //return view('login', ['error', 'Datos incorrectos']);
         }
     }
 
     public function redireccion(){
-        if(session()->exists('data')){
-            if(session()->get('data')->tipoUsuario === "alumno"){
-                $this->getLaboratorios(session()->get('data')->token);
+        session_start();
+        //  if(session()->exists('data'))
+        if(isset($_SESSION["data"])){
+            if($_SESSION["data"]->tipoUsuario === "alumno"){
+                $this->getLaboratorios($_SESSION["data"]->token);
                 return view('alumno.home');
-            }else if(session()->get('data')->tipoUsuario === "docente"){
+            }else if($_SESSION["data"]->tipoUsuario === "docente"){
                 return view('docente.home');
-            }else if(session()->get('data')->tipoUsuario === "visitante"){
+            }else if($_SESSION["data"]->tipoUsuario === "visitante"){
                 return view('visitante.home');
             }else{
                 echo "Tipo de usuario NO valido";
-                //header("location: /SCEII"); // Tipo de usuario NO valido
+                //header("location: /SCEII");
             }
         }else{
             //echo "No existe la session";
@@ -140,29 +145,46 @@ class Controller extends BaseController {
     }
 
     public function getLogin(){
-        //return view('login');
-        //header("location: /SCEII");
-        echo "idk";
+        
+    }
+
+    public function logOut(){
+        //Session::forget('data');
+        session_start();
+        session_destroy();
+        //echo "CERRADAAAAAAAAAAAAAAAA";
+        header("location: https://labmanufactura.net/SCEII/");
+        exit;
     }
 
     public function getLaboratorios($token) {
-        $responde = Http::withHeaders([
-            'Authorization' => $token,
-            'Content-Type' => 'application/json'
-        ])->get('https://labmanufactura.net/api-sceii/v1/routes/alumno_laboratorio.php');
-        if ($responde->successful()) {
-            $obj = $responde->Object();
-            Session::put('laboratorios', $obj);
-        } else {
-            echo "ERROR al buscar laboratorios";
-            //header("location: /SCEII");
+        //session_start();
+        if (isset($_SESSION["data"])) {
+            $responde = Http::withHeaders([
+                'Authorization' => $token,
+                'Content-Type' => 'application/json'
+            ])->get('https://labmanufactura.net/api-sceii/v1/routes/alumno_laboratorio.php');
+            if ($responde->successful()) {
+                $obj = $responde->Object();
+                $data = $obj->data;
+                //Session::put('laboratorios', $obj);
+                $_SESSION["laboratorios"]= $data;
+            } else {
+                //echo "ERROR al buscar laboratorios";
+                header("location: /SCEII");
+            }
+        }else{
+            //echo "ERROR no existe el token";
+            header("location: /SCEII");
         }
     }
 
     public function laboratorio($id) {
-        if (session()->exists('data')) {
+        session_start();
+        //if (session()->exists('data'))
+        if (isset($_SESSION["data"])) {
             //echo $id;
-            $token = session()->get('data')->token;
+            $token = $_SESSION["data"]->token;
             $responde = Http::withHeaders([
                 'Authorization' => $token,
                 'Content-Type' => 'application/json'
@@ -171,7 +193,9 @@ class Controller extends BaseController {
                 $obj = $responde->Object();
                 $lab = $obj->data[0];
                 //var_dump($obj);
-                Session::put('laboratorio', $lab);
+                //Session::put('laboratorio', $lab);
+                $_SESSION["laboratorio"] = $lab;
+                //var_dump($_SESSION["laboratorio"]);
                 return view('alumno.laboratorio');
             } else {
                 echo "ERROR al buscar laboratorios";

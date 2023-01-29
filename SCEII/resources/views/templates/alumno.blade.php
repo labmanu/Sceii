@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php date_default_timezone_set('America/Mexico_City');?>
+<?php date_default_timezone_set('America/Mexico_City'); ?>
 <!-- Cabeceras -->
 <head>
     <meta charset="UTF-8">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    <script src="https://raw.githubusercontent.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
     <link rel="icon" href="{{ asset('public/assets/logo.png')}}">
     <link rel="stylesheet" href="{{ asset('public/css/alumno.css')}}">
     @yield('headers')
@@ -33,35 +34,19 @@
 <!-- FIN Cabeceras -->
 <!-- Cuerpo de la página -->
 <body>
-    
-    @if(session()->exists('message'))
-        <script type="text/javascript">
-            /*
-            //var message = {{ Session::get('message') }};
-            Swal.fire({
-                icon: 'success',
-                title: 'Login exitoso',
-                text: 'Bienvenido uwu',
-                color: 'white',
-                background: '#131414',
-                confirmButtonColor: '#46a525'
-            });
-            */
-        </script>
-    @endif
 
     <div id="mySidebar" class="sidebar">
         <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>-->
         <div class="sidebar-header text-center">
             <a href="/SCEII/inicio">
                 <h3>Mi perfil</h3>
-                <img src="<?=session()->get('data')->fotoPerfil?>" class="center-block icon-logo" />
+                <img src="{{ $_SESSION["data"]->fotoPerfil }}" class="center-block icon-logo" />
             </a>
         </div>
         <p class="user">
-            <?=session()->get('data')->nombre?> <?=session()->get('data')->apellidos?>
+            {{ $_SESSION["data"]->nombre }} {{ $_SESSION["data"]->apellidos }}
             <br>
-            <?=session()->get('data')->tipoUsuario?>
+            {{ $_SESSION["data"]->tipoUsuario }}
         </p>
         <!--<a href=""><i class="fas fa-bell fa-1x"></i> Notificaciones</a>-->
         <a class="config"><i class="fas fa-gear fa-1x"></i> Configuración</a>
@@ -79,28 +64,26 @@
 
         <!-- Navbar de saludo -->
         @if(date('G') >= 7 && date('G') < 12)
-            <?=$saludo="Buenos días"?>
+            {{ $saludo="Buenos días" }}
         @elseif(date('G') >= 12 && date('G') <= 19)
-            <?=$saludo="Buenas tardes"?>
+            {{ $saludo="Buenas tardes" }}
         @elseif(date('G') < 7 || date('G') > 19)
-            <?=$saludo="Buenas noches"?>
+            {{ $saludo="Buenas noches" }}
         @endif
         
         <div class="openbtn" onclick="side()">
-            <img src="<?=session()->get('data')->fotoPerfil?>" class="icon-sm" />
+            <img src="{{ $_SESSION["data"]->fotoPerfil }}" class="icon-sm" />
             <b>
                 <div class="text-center">
                     SCEII
                 </div>
                 <!--<i class="fa-solid fa-bars"></i>-->
                 <div class="saludo">
-                    <?=$saludo?> 
+                    {{$saludo }} 
                     <script>
-                        if(screen.width < 767){
-                            document.write("<br>");
-                        }
+                        if(screen.width < 767){document.write("<br>");}
                     </script>
-                    <?=session()->get('data')->nombre?> 
+                    {{ $_SESSION["data"]->nombre }} 
                 </div>
             </b>
         </div>
@@ -109,7 +92,7 @@
 
     </div>
 
-    <script  type="text/javascript" src="{{ asset('public/js/alumno.js')}}"></script>
+    <script  type="text/javascript" src="{{ asset('public/js/alumno.js') }}"></script>
 </body>
 <!-- FIN Cuerpo de la página -->
 </html>

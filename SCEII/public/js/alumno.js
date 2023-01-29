@@ -5,6 +5,7 @@ var ms = document.getElementById("mySidebar");
 var mn = document.getElementById("main");
 var lb = document.getElementById("lab");
 
+const baseUrl = "https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php"
 // Si la resolucion es mas que la de un celular, se abre la navbar
 if (res > 767) {
     side()
@@ -19,6 +20,7 @@ function side() {
         barra = true;
     }
 }
+
 
 function openNav() {
     if (ms) {
@@ -66,8 +68,9 @@ $('.logout').on('click', function() {
         },
     }).then((result) => {
         if (result.isConfirmed) {
-
-            window.location.href = "/SCEII";
+            //alert("<?php echo 'Session::flush();' ?>");
+            //document.body.innerHTML = "{{Session::flush();}}";
+            window.location.href = "https://labmanufactura.net/SCEII/logOut";
         }
     })
 });
@@ -97,10 +100,8 @@ $('.config').on('click', function() {
 });
 
 $('.addlab').on('click', async function() {
-    if (res < 767)
-        side();
-    const { value: code } = await 
-    Swal.fire({
+    var aux = false;
+    const { value: code } = await Swal.fire({
         background: '#131414',
         color: 'white',
         title: 'Inscribir Laboratorio',
@@ -111,18 +112,114 @@ $('.addlab').on('click', async function() {
         confirmButtonColor: '#46a525',
         cancelButtonColor: '#d33',
     })
+
     if(code){
+        $.ajax({
+            url: baseUrl + "?codigo_acceso="+code,
+            type: 'GET',
+            dataType: 'JSON',
+            async: true,
+            success: function(response) {
+                Swal.fire({
+                    background: '#131414',
+                    color: 'white',
+                    title: 'Información de laboratorio',
+                    html: "<p>Nombre: " + response.data[0].nombre + "<br> Encargado: " + response.data[0].encargado +"</p>",
+                    imageUrl: response.data[0].imagen,
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    showCancelButton: true,
+                    confirmButtonColor: '#46a525',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: 'Inscribir',
+                    imageAlt: 'Custom image',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                            )
+                        }
+                    })
+            },
+            error: function(error) {
+                //const response = error.responseJSON;
+                //window.alert("error")
+                console.log(error);
+                Swal.fire({
+                    background: '#131414',
+                    color: 'white',
+                    title: 'No existe el laboratorio',
+                })
+            }
+        });
+    }else{
         Swal.fire({
             background: '#131414',
             color: 'white',
-            title: `Your code is ${code}`,
-            text: 'uwu',
-            imageUrl: 'https://unsplash.it/400/200',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
+            title: 'No existe el laboratorio',
         })
     }
+
+
+
+    /*
+    $.ajax({
+        url: url + "alumno",
+        type: 'POST',
+        dataType: 'JSON',
+        data: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        success: async function(response) {
+            await alertSuccess()
+        },
+        error: function(error) {
+            const response = error.responseJSON;
+            if (response.message === 'El correo ya se encuentra registrado') {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: response.message,
+                    showConfirmButton: false,
+                    timer: 3000,
+                    toast: true,
+                    color: 'white',
+                    background: '#131414',
+                })
+                correo.style.borderColor = "red";
+                lblCorreo.style.display = "flex";
+                lblCorreo.innerHTML = response.message;
+            } else {
+                if (response.message === 'El no. Control ya se encuentra registrado') {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: response.message,
+                        showConfirmButton: false,
+                        timer: 3000,
+                        toast: true,
+                        color: 'white',
+                        background: '#131414',
+                    })
+                    noControl.style.borderColor = "red";
+                    lblnoControl.style.display = "flex"
+                    lblnoControl.innerHTML = response.message;
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Lo sentimos',
+                        text: 'Ha ocurrido un error inesperado',
+                        color: 'white',
+                        background: '#131414',
+                        confirmButtonColor: '#46a525'
+                    });
+                }
+            }
+        }
+    });
+    */
 });
 
 async function alertSuccess() {
