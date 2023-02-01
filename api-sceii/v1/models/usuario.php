@@ -26,7 +26,7 @@ class model_usuario{
     $mail->SMTPAuth = true;   //enable SMTP authentication
     
     $mail->Username =   "sceii.itcelaya@gmail.com"; // SMTP account username
-    $mail->Password = "okqrjsltakrujeuj";  // SMTP account password
+    $mail->Password = "mymyribaivzgkkfs";  // SMTP account password
       
     $mail->From="sceii.itcelaya@gmail.com";
     $mail->FromName=utf8_encode("Sistema de Control Estudiantil de Ingeniería Industrial");
@@ -55,7 +55,7 @@ class model_usuario{
     $mail->SMTPAuth = true;   //enable SMTP authentication
     
     $mail->Username =   "sceii.itcelaya@gmail.com"; // SMTP account username
-    $mail->Password = "okqrjsltakrujeuj";  // SMTP account password
+    $mail->Password = "mymyribaivzgkkfs";  // SMTP account password
       
     $mail->From="sceii.itcelaya@gmail.com";
     $mail->FromName=utf8_decode("Sistema de control academico de ingeniería Industrial");

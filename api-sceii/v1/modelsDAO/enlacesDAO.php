@@ -42,10 +42,29 @@ require_once('usuarioDAO.php');
                 }
         }
 
+
+        function get_enlace($id){
+            try{
+                $this->consulta("CALL get_enlace('".$id."');");
+                $asoc = $this->get_array_query();
+                $array = array (
+                    "status" => true,
+                    "data" => $asoc);
+                return $array;
+            }
+            catch(Exception $e){
+                $array = [
+                    "status" => false,
+                    "error" => $e->getMessage(),
+                    ];
+                return $array;
+        }
+
        
     
         
     }
+}
     
     
 

@@ -9,12 +9,19 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-//use Session;
 
 class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function signin(Request $request){
+    public function raiz(Request $request){
+        session_start();
+        if(isset($_SESSION["data"])){
+            return redirect()->route($_SESSION["data"]->tipoUsuario);
+        }else
+            return view('login');
+    }
+
+    public function login(Request $request){
         $body = [
             "correo" => $request->get("correo"),
             "clave" => $request->get("clave")
@@ -23,22 +30,17 @@ class Controller extends BaseController {
         if($responde->successful()){
             /*
             OJO CON EL TIPO DE SESSION
-             Session::put                     mantiene la session abierta         (temporal)
-             redirect()->route()->with()      desaparece al recargar la pagina    (uso unico)
+             Session::put                  mantiene la session de laravel abierta   (temporal)
+             redirect()->route()->with()   desaparece al recargar la pagina         (uso unico)
             */
-
             $obj = $responde->Object();
-            $message = $obj->message[0];
             $data = $obj->data[0];
             //Session::put('data', $data);
             session_start();
-            $_SESSION["data"]= $data;
-            //$_SESSION["newsession"]=$value;
-            return redirect()->route('redireccion')->with('message', $message);
+            $_SESSION["data"] = $data;
+            return redirect()->route('redireccion');
         }else {
-            //return redirect()->route('/')->with('error', 'Datos incorrectos');
-            //return view('login', ['e'=>'Datos incorrectos']);
-            //return view('login', ['error', 'Datos incorrectos']);
+            return redirect()->route('/')->with('error', 'Usuario o contraseña incorrecta');
         }
     }
 
@@ -48,113 +50,36 @@ class Controller extends BaseController {
         if(isset($_SESSION["data"])){
             if($_SESSION["data"]->tipoUsuario === "alumno"){
                 $this->getLaboratorios($_SESSION["data"]->token);
-                return view('alumno.home');
+                return redirect()->route('alumno');
             }else if($_SESSION["data"]->tipoUsuario === "docente"){
                 return view('docente.home');
             }else if($_SESSION["data"]->tipoUsuario === "visitante"){
                 return view('visitante.home');
             }else{
-                echo "Tipo de usuario NO valido";
-                //header("location: /SCEII");
+                //echo "Tipo de usuario NO valido";
+                return redirect()->route('/');
             }
         }else{
             //echo "No existe la session";
-            header("location: /SCEII");
+            return redirect()->route('/');
         }
     }
 
-    public function nuevoRegistro(Request $request){
-        $metodo = $request->get("metodo");
-        if($metodo == "insertarAlumno"){
-            $body = [
-                "nombre" => $request->get("nombre"),
-                "apellidos" => $request->get("apellidos"),
-                "correo" => $request->get("correo"),
-                "clave" => $request->get("clave"),
-                "genero" => $request->get("genero"),
-                "fecha_nacimiento" => $request->get("fecha_nacimiento"),
-                "no_control" => $request->get("no_control"),
-                "id_carrera" => $request->get("id_carrera"),
-                "id_semestre" => $request->get("id_semestre")
-            ];
-            //var_dump($body);
-            $responde = Http::post('https://labmanufactura.net/api-sceii/v1/routes/registro.php?tipo=alumno', $body);
-            if($responde->successful()){
-                //var_dump($responde);
-                $obj = $responde->Object();
-                if(property_exists($obj, 'code')){
-                    return redirect()->route('registrado')->with('error', $obj->message[0]);
-                }else if(property_exists($obj, 'data')){
-                    return redirect()->route('registrado')->with('registrado', 'Alumno Registrado');
-                }else{
-                    return redirect()->route('registrado')->with('error', 'No se reconocen los datos de la petición');
-                }
-            }else{
-                return redirect()->route('registrado')->with('error', 'No se pudo procesar la petición');
-            }
-        }else if($metodo == "insertarDocente"){
-            $body = [
-                "nombre" => $request->get("nombre"),
-                "apellidos" => $request->get("apellidos"),
-                "correo" => $request->get("correo"),
-                "clave" => $request->get("clave"),
-                "genero" => $request->get("genero"),
-                "fecha_nacimiento" => $request->get("fecha_nacimiento")
-            ];
-            //var_dump($body);
-            $responde = Http::post('https://labmanufactura.net/api-sceii/v1/routes/registro.php?tipo=docente', $body);
-            if($responde->successful()){
-                //var_dump($responde);
-                $obj = $responde->Object();
-                if(property_exists($obj, 'code')){
-                    return redirect()->route('registrado')->with('error', $obj->message[0]);
-                }else if(property_exists($obj, 'data')){
-                    return redirect()->route('registrado')->with('registrado', 'Docente Registrado');
-                }else{
-                    return redirect()->route('registrado')->with('error', 'No se reconocen los datos de la petición');
-                }
-            }else{
-                return redirect()->route('registrado')->with('error', 'No se pudo procesar la petición');
-            }
-        }else if($metodo == "insertarVisitante"){
-            $body = [
-                "nombre" => $request->get("nombre"),
-                "apellidos" => $request->get("apellidos"),
-                "correo" => $request->get("correo"),
-                "clave" => $request->get("clave"),
-                "genero" => $request->get("genero"),
-                "fecha_nacimiento" => $request->get("fecha_nacimiento"),
-                "institucion" => $request->get("institucion")
-            ];
-            //var_dump($body);
-            $responde = Http::post('https://labmanufactura.net/api-sceii/v1/routes/registro.php?tipo=visitante', $body);
-            if($responde->successful()){
-                //var_dump($responde);
-                $obj = $responde->Object();
-                if(property_exists($obj, 'code')){
-                    return redirect()->route('registrado')->with('error', $obj->message[0]);
-                }else if(property_exists($obj, 'data')){
-                    return redirect()->route('registrado')->with('registrado', 'Visitante Registrado');
-                }else{
-                    return redirect()->route('registrado')->with('error', 'No se reconocen los datos de la petición');
-                }
-            }else{
-                return redirect()->route('registrado')->with('error', 'No se pudo procesar la petición');
-            }
+    public function alumno(){
+        session_start();
+        if(isset($_SESSION["data"]))
+            return view('alumno.home');
+        else{
+            return redirect()->route('/');
         }
-    }
-
-    public function getLogin(){
-        
     }
 
     public function logOut(){
         //Session::forget('data');
+        //Session::flush();
         session_start();
         session_destroy();
-        //echo "CERRADAAAAAAAAAAAAAAAA";
-        header("location: https://labmanufactura.net/SCEII/");
-        exit;
+        return redirect()->route('/');
     }
 
     public function getLaboratorios($token) {
@@ -169,13 +94,14 @@ class Controller extends BaseController {
                 $data = $obj->data;
                 //Session::put('laboratorios', $obj);
                 $_SESSION["laboratorios"]= $data;
+                //var_dump($_SESSION["laboratorios"]);
             } else {
                 //echo "ERROR al buscar laboratorios";
-                header("location: /SCEII");
+                return redirect()->route('/');
             }
         }else{
-            //echo "ERROR no existe el token";
-            header("location: /SCEII");
+            //echo "ERROR no existe el token en laboratorios";
+            return redirect()->route('/');
         }
     }
 
@@ -195,15 +121,43 @@ class Controller extends BaseController {
                 //var_dump($obj);
                 //Session::put('laboratorio', $lab);
                 $_SESSION["laboratorio"] = $lab;
+                $_SESSION["id_laboratorio"] = $id;
                 //var_dump($_SESSION["laboratorio"]);
                 return view('alumno.laboratorio');
             } else {
-                echo "ERROR al buscar laboratorios";
-                //header("location: /SCEII");
+                //echo "ERROR al buscar laboratorio";
+                return redirect()->route('/');
             }
         }else{
-            //echo "ERROR no existe el token";
-            header("location: /SCEII");
+            //echo "ERROR no existe el token en laboratorio";
+            return redirect()->route('/');
+        }
+    }
+
+    public function asistencia(){
+        session_start();
+        if(isset($_SESSION["data"]) && isset($_SESSION["id_laboratorio"])){
+            return view('alumno.asistencia');
+        }else{
+            return redirect()->route('/');
+        }
+    }
+
+    public function perfil(){
+        session_start();
+        if(isset($_SESSION["data"])){
+            return view('alumno.perfil');
+        }else{
+            return redirect()->route('/');
+        }
+    }
+
+    public function editar(){
+        session_start();
+        if(isset($_SESSION["data"])){
+            return view('alumno.editar');
+        }else{
+            return redirect()->route('/');
         }
     }
 

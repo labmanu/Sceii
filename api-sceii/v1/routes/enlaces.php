@@ -11,6 +11,14 @@ include("../controllers/enlacesController.php");
         $enlaces->crea_enlace($data);
         exit;
     }
+
+    if($_SERVER['REQUEST_METHOD'] == "GET"){
+        $id = $_REQUEST['id'];
+        $enlaces = new enlacesController();
+        $enlaces->get_enlace($id);
+        exit;
+    }
+
     
    
 ?>

@@ -62,7 +62,7 @@
             </h3>
 
             <div class="inputContainer">
-                <input name="correo" type="email" class="{{(session()->exists('error')?"input-login-error":"input-login") }}" id= "correo" placeholder="a" required />
+                <input name="correo" type="email" class="{{(session()->exists('error')?"input-login-error":"input-login") }}" id= "correo" placeholder="a" required/>
                 <label class="labelform">
                     <i class="fa-solid fa-envelope"></i> Correo:
                 </label>

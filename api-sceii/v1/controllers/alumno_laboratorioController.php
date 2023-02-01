@@ -49,6 +49,26 @@ require_once('responseHttp.php');
             exit;
             }
         }
+        
+        function abandonar_laboratorio($data){
+            try{
+            $auth = new authorization();
+            $token_data = $auth->authorizationByTypeUSer("alumno");
+            $aluMat = new alumno_laboratorioDAO();
+            $status = $aluMat->abandonar_laboratorio($data,$token_data['data']['id']);
+            if($status["status"]===true){
+                $this->status201("Has sido dado de baja con éxito");
+               }
+               else{
+                $this->status400($status["error"]);
+               }
+            }
+            catch(Exception $e){
+                $this->status400($e->getMessage());
+            exit;
+            }
+        }
+        
 
     }
 ?>

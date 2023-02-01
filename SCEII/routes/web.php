@@ -17,44 +17,21 @@ use App\Http\Controllers\ConfirmController;
 
 /* INTERFACES */
 
-// Login
-Route::get('/', function () { // Home / Login
-    //Session::forget('data');
-    //Session::flush();
-    session_start();
-    if(isset($_SESSION["data"]))
-        return view('alumno.home');
-    else
-        return view('login');
-})->name('/');
-Route::post('/login', [Controller::class,'signin'])->name('redireccion.login');
-
-//Creo que el /inicio se puede dejar como raiz pero se deberia cambiar la forma de cerrar session
-Route::get('/inicio', [Controller::class,'redireccion'])->name('redireccion');
-Route::get('/laboratorio/{id}', [Controller::class,'laboratorio'])->name('laboratorio');
-
 // Registro
-Route::get('/registro', function () { // Tipo de registro
-    //Session::flush();
-    return view('registro.tipo');
-});
-Route::get('/registro/{tipo}', function () { // Interfaz dinámica para el registro
-    //Session::flush();
-    return view('registro.registro');
-});
-
-Route::post('/registrar', [Controller::class,'nuevoRegistro'])->name('registrar.nuevo');
-Route::get('/registrado', [Controller::class,'getLogin'])->name('registrado');
-Route::get("/logOut", [Controller::class,'logOut'])->name("logOut");
-
-// Confirmar cuenta
+Route::get('/registro', function () { return view('registro.tipo');});
+Route::get('/registro/{tipo}', function () { return view('registro.registro');});
 Route::get('/confirmarCuenta/{token}',  [ConfirmController::class,'start'])->name('confirmarCuenta');
 
-// Alumno
-Route::get('/alumno', function () { // Alumno
-    session_start();
-    if(isset($_SESSION["data"]))
-    return view('alumno.home');
-    else
-    header("location: /SCEII");
-});
+// Control de Usuarios
+Route::get('/', [Controller::class,'raiz'])->name('/');
+Route::post('/login', [Controller::class,'login'])->name('redireccion.login');
+Route::get('/redireccion', [Controller::class,'redireccion'])->name('redireccion');
+Route::get("/logOut", [Controller::class,'logOut'])->name("logOut");
+
+// Session [ALUMNO]
+Route::get('/alumno', [Controller::class,'alumno'])->name('alumno');
+Route::get('/alumno/editar', [Controller::class,'editar'])->name('editar');
+Route::get('/alumno/perfil', [Controller::class,'perfil'])->name('perfil');
+Route::get('/alumno/laboratorio/{id}', [Controller::class,'laboratorio'])->name('laboratorio');
+Route::get('/alumno/laboratorio/{id}/asistencia', [Controller::class,'asistencia'])->name('asistencia');
+

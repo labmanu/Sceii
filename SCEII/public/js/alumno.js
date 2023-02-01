@@ -3,9 +3,10 @@ var res = screen.width;
 
 var ms = document.getElementById("mySidebar");
 var mn = document.getElementById("main");
-var lb = document.getElementById("lab");
+//var lb = document.getElementById("lab");
 
 const baseUrl = "https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php"
+
 // Si la resolucion es mas que la de un celular, se abre la navbar
 if (res > 767) {
     side()
@@ -21,7 +22,6 @@ function side() {
     }
 }
 
-
 function openNav() {
     if (ms) {
         ms.classList.add("openside");
@@ -29,9 +29,6 @@ function openNav() {
     if (mn) {
         mn.classList.add("openmain");
     }
-    /*if (il) {
-        il.style.paddingTop = "5%";
-    }*/
 }
 
 function closeNav() {
@@ -41,9 +38,6 @@ function closeNav() {
     if (mn) {
         mn.classList.remove("openmain");
     }
-    /*if (il) {
-        il.style.paddingTop = "0%";
-    }*/
 }
 
 $('.logout').on('click', function() {
@@ -56,9 +50,10 @@ $('.logout').on('click', function() {
         icon: 'info',
         text: "¿Seguro que quieres cerrar sesión?",
         showCancelButton: true,
-        showCloseButton: true,
+        //showCloseButton: true,
         confirmButtonColor: '#46a525',
         cancelButtonColor: '#d33',
+        cancelButtonText: "Cancelar",
         confirmButtonText: 'Ok',
         showClass: {
             popup: 'animate__animated animate__bounceInUp'
@@ -83,7 +78,7 @@ $('.config').on('click', function() {
         color: 'white',
         title: 'Ajustes',
         html: '<div style="text-align: left;">' +
-            '<a class=""><i class="fa-solid fa-pen"></i> Editar perfil</a><br><hr class="separador">' +
+            '<a class="edit"><i class="fa-solid fa-pen"></i> Editar perfil</a><br><hr class="separador">' +
             '<a class=""><i class="fas fa-bell fa-1x"></i> Ver notificaciones</a><br><hr class="separador">' +
             '<a class=""><i class="fa-solid fa-sun"></i> Tema</a><br><hr class="separador">' +
             '<a class="text-danger"><i class="fa-solid fa-trash"></i> Eliminar cuenta</a><hr class="separador">' +
@@ -97,10 +92,55 @@ $('.config').on('click', function() {
             popup: 'animate__animated animate__bounceOutDown'
         },
     })
+    $('.edit').on('click', async function() {
+
+        location.href= 'https://labmanufactura.net/SCEII/alumno/editar';
+        
+        /*
+        const { value: formValues } = await Swal.fire({
+            title: 'Editar perfil',
+            background: '#131414',
+            color: 'white',
+            
+            html:
+                '<form action="/action_page.php">'+
+                    '<label for="swal-input1">First name:</label>'+
+                    '<input type="text" id="swal-input1" class="swal2-input" name="swal-input1" style="width: 80%">'+
+                    
+                    '<label for="swal-input2">Last name:</label>'+
+                    '<input type="text" id="swal-input2" class="swal2-input" name="swal-input2" style="width: 80%">'+
+                    
+                    '<input type="submit" value="Submit">'+
+                '</form> ',
+                
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value
+                ]
+            }
+        })
+        
+        if (formValues) {
+            Swal.fire(JSON.stringify(formValues))
+        }
+        */
+
+    });
 });
 
-$('.addlab').on('click', async function() {
-    var aux = false;
+
+
+$('.perfil').on('click', function() {
+    window.location.href = "https://labmanufactura.net/SCEII/alumno/perfil";
+});
+
+$('.about').on('click', function() {
+    window.location.href = "https://labmanufactura.net/#about";
+});
+
+async function addLab(token) {
     const { value: code } = await Swal.fire({
         background: '#131414',
         color: 'white',
@@ -111,6 +151,8 @@ $('.addlab').on('click', async function() {
         showCancelButton: true,
         confirmButtonColor: '#46a525',
         cancelButtonColor: '#d33',
+        cancelButtonText: "Cancelar",
+        confirmButtonText: 'Buscar',
     })
 
     if(code){
@@ -135,13 +177,45 @@ $('.addlab').on('click', async function() {
                     confirmButtonText: 'Inscribir',
                     imageAlt: 'Custom image',
                     }).then((result) => {
+/**/
                         if (result.isConfirmed) {
-                            Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                            )
+                            var formData = {
+                                codigo: code
+                            };
+                            $.ajax({
+                                url: 'https://labmanufactura.net/api-sceii/v1/routes/alumno_laboratorio.php',
+                                type: 'POST',
+                                dataType: 'JSON',
+                                data: JSON.stringify(formData),
+                                async: true,
+                                headers: { 'Authorization': token },
+                                success: function(response) {
+                                    //Swal.fire(response.message);
+                                    Swal.fire({
+                                        background: '#131414',
+                                        color: 'white',
+                                        icon: 'success',
+                                        title: response.message,
+                                        
+                                    }).then((result) => {
+                                        // Recarga la ventana
+                                        window.location.href = window.location.href;
+                                    })
+                                },
+                                error: function(xhr, status, error) {
+                                    const obj = JSON.parse(xhr.responseText);
+                                    Swal.fire({
+                                        background: '#131414',
+                                        color: 'white',
+                                        icon: 'error',
+                                        title: obj.status,
+                                        text: obj.message,
+                                    })
+                                }
+                            });
+                            
                         }
+/**/
                     })
             },
             error: function(error) {
@@ -151,84 +225,21 @@ $('.addlab').on('click', async function() {
                 Swal.fire({
                     background: '#131414',
                     color: 'white',
+                    icon: 'error',
                     title: 'No existe el laboratorio',
+                    text: 'El código ingresado no es valido',
                 })
             }
         });
     }else{
+        /*
         Swal.fire({
             background: '#131414',
-            color: 'white',
-            title: 'No existe el laboratorio',
-        })
-    }
-
-
-
-    /*
-    $.ajax({
-        url: url + "alumno",
-        type: 'POST',
-        dataType: 'JSON',
-        data: JSON.stringify(formData),
-        headers: { 'Content-Type': 'application/json' },
-        success: async function(response) {
-            await alertSuccess()
-        },
-        error: function(error) {
-            const response = error.responseJSON;
-            if (response.message === 'El correo ya se encuentra registrado') {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: response.message,
-                    showConfirmButton: false,
-                    timer: 3000,
-                    toast: true,
                     color: 'white',
-                    background: '#131414',
-                })
-                correo.style.borderColor = "red";
-                lblCorreo.style.display = "flex";
-                lblCorreo.innerHTML = response.message;
-            } else {
-                if (response.message === 'El no. Control ya se encuentra registrado') {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: response.message,
-                        showConfirmButton: false,
-                        timer: 3000,
-                        toast: true,
-                        color: 'white',
-                        background: '#131414',
-                    })
-                    noControl.style.borderColor = "red";
-                    lblnoControl.style.display = "flex"
-                    lblnoControl.innerHTML = response.message;
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Lo sentimos',
-                        text: 'Ha ocurrido un error inesperado',
-                        color: 'white',
-                        background: '#131414',
-                        confirmButtonColor: '#46a525'
-                    });
-                }
-            }
-        }
-    });
-    */
-});
-
-async function alertSuccess() {
-    Swal.fire({
-        icon: 'success',
-        title: 'Registro exitoso',
-        text: 'Se ha enviado un enlace de confirmación a su correo',
-        color: 'white',
-        background: '#131414',
-        confirmButtonColor: '#46a525'
-    });
+                    icon: 'error',
+                    title: 'Ingrese un código',
+                    text: 'No se ingresó ningun código',
+        })
+        */
+    }
 }

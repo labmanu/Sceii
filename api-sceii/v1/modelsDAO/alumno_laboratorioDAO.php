@@ -52,6 +52,26 @@ require_once('usuarioDAO.php');
                 return $array;
             }
         }
+        
+        function  abandonar_laboratorio($data,$id_usuario){
+            try{
+               
+                $usuario = new usuarioDAO(); //getIdTypeUser
+                $id_alumno  = $usuario->getIdTypeUser($id_usuario);
+                $this->consulta("call abandonar_laboratorio('".$data["id_laboratorio"]."','".$id_alumno."');");
+                $array = array (
+                    "status" => true,
+                    "message" => 'Has sido dado con éxito');
+                return $array;
+            }
+            catch(Exception $e){
+                $array = [
+                    "status" => false,
+                    "error" => $e->getMessage(),
+                    ];
+                return $array;
+            }
+        }
     }
     
     

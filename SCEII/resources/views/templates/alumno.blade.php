@@ -24,10 +24,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
-    <script src="https://raw.githubusercontent.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
     <link rel="icon" href="{{ asset('public/assets/logo.png')}}">
     <link rel="stylesheet" href="{{ asset('public/css/alumno.css')}}">
-    @yield('headers')
     <!-- Titulo de la página -->
     <title>@yield('title')</title>
 </head>
@@ -38,24 +36,28 @@
     <div id="mySidebar" class="sidebar">
         <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>-->
         <div class="sidebar-header text-center">
-            <a href="/SCEII/inicio">
-                <h3>Mi perfil</h3>
+            <a href="/SCEII/alumno">
+                <!--<h3>Mi perfil</h3>-->
                 <img src="{{ $_SESSION["data"]->fotoPerfil }}" class="center-block icon-logo" />
+                <div class="user">
+                    {{ $_SESSION["data"]->nombre }}
+                    <br>
+                    {{ $_SESSION["data"]->apellidos }}
+                </div>
+                <div class="tipouser">
+                    {{ $_SESSION["data"]->tipoUsuario }}
+                </div>
             </a>
         </div>
-        <p class="user">
-            {{ $_SESSION["data"]->nombre }} {{ $_SESSION["data"]->apellidos }}
-            <br>
-            {{ $_SESSION["data"]->tipoUsuario }}
-        </p>
+        
         <!--<a href=""><i class="fas fa-bell fa-1x"></i> Notificaciones</a>-->
         <a class="config"><i class="fas fa-gear fa-1x"></i> Configuración</a>
         <hr class="separador">
-        <a class=""><i class="fas fa-circle-user fa-1x"></i> Ver perfil</a>
+        <a class="perfil"><i class="fas fa-circle-user fa-1x"></i> Ver perfil</a>
         <hr class="separador">
-        <a class=""><i class="fa-solid fa-user-astronaut"></i> Acerca de nosotros</a>
+        <a class="about"><i class="fa-solid fa-user-astronaut"></i> Acerca de nosotros</a>
         <hr class="separador">
-        <a class="text-danger logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a>
+        <a class="logout text-danger"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a>
         <hr class="separador">
         
     </div>
@@ -93,6 +95,7 @@
     </div>
 
     <script  type="text/javascript" src="{{ asset('public/js/alumno.js') }}"></script>
+
 </body>
 <!-- FIN Cuerpo de la página -->
 </html>

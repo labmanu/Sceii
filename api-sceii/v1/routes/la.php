@@ -16,6 +16,7 @@ include("../controllers/alumno_laboratorioController.php");
         exit;
     }
     if($_SERVER['REQUEST_METHOD'] == "DELETE"){
+        echo "d";
         $aluLab = new alumno_laboratorioController();
         $data = (json_decode(file_get_contents('php://input'),true));
         $aluLab->abandonar_laboratorio($data);

@@ -36,6 +36,26 @@ require_once('responseHttp.php');
             exit;
         }
         }
+
+
+        function get_enlace($id){
+            try{
+                $enlaces = new enlacesDAO();
+            $status = $enlaces->get_enlace($id);
+            if($status["status"]===true){
+                $this->status201("exito", $status["data"]);
+               }
+               else{
+                $this->status400($status["error"]);
+               }
+            }
+            catch(Exception $e){
+                $this->status400($e->getMessage());
+            exit;
+            }
+        }
+
+
     }
 
 ?>

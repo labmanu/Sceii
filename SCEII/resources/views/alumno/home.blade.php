@@ -1,6 +1,12 @@
 @extends('templates.alumno')
 @section('title', 'Home Alumno')
 
+@if(isset($_SESSION["data"]))
+    <script >
+        var token = '<?php echo $_SESSION["data"]->token; ?>';
+    </script>
+@endif
+
 @section('content')
 
     <!-- Contenido -->
@@ -8,10 +14,10 @@
         <!-- Listado de laboratorios -->
         @if(isset($_SESSION["laboratorios"]))
             <div class="album">
-                <h3 class="py-2">Laboratorios</h3>
+                <h3 class="titulo py-2">Laboratorios</h3>
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 g-3">
                     @foreach($_SESSION["laboratorios"] as $lab)
-                        <a href="./laboratorio/{{ $lab->id }}">
+                        <a href="alumno/laboratorio/{{ $lab->id }}">
                             <div class="col">
                                 <div class="form-lab text-white animate__animated animate__bounceInLeft">
                                     <div class="fondolab" style="background-image: url({{ $lab->imagen }});"></div>
@@ -31,7 +37,8 @@
                         </a>
                     @endforeach
                 </div>
-                <button type="button" class="btn btn-success btn-circle addlab"><i class="fa-solid fa-plus"></i></button>
+                
+                <button type="button" class="btn btn-success btn-circle" onclick='addLab(token)'><i class="fa-solid fa-plus"></i></button>
                 <br>
 
             </div>
