@@ -32,6 +32,8 @@ Route::get("/logOut", [Controller::class,'logOut'])->name("logOut");
 Route::get('/alumno', [Controller::class,'alumno'])->name('alumno');
 Route::get('/alumno/editar', [Controller::class,'editar'])->name('editar');
 Route::get('/alumno/perfil', [Controller::class,'perfil'])->name('perfil');
+Route::get('/alumno/compañeros', [Controller::class,'compas'])->name('compas');
 Route::get('/alumno/laboratorio/{id}', [Controller::class,'laboratorio'])->name('laboratorio');
 Route::get('/alumno/laboratorio/{id}/asistencia', [Controller::class,'asistencia'])->name('asistencia');
+Route::get('/alumno/laboratorio/{id}/calendario', [Controller::class,'calendario'])->name('calendario');
 

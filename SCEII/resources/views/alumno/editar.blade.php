@@ -1,25 +1,26 @@
-@extends('templates.alumno')
-
 @if(isset($_SESSION["data"]))
+
+    @extends('templates.alumno')
     @section('title', 'Editar perfil de '.$_SESSION["data"]->nombre )
+   
     @section('content')
 
-    <script>
-        Swal.fire({
-            background: '#131414',
-            color: 'white',
-            title: 'Funcionalidad en desarrollo',
-            icon: 'warning',
-            text: "Se estan perfeccionando las funcionalidades [Vista previa del diseño final]",
-            //confirmButtonColor: '#46a525',
-            showClass: {
-                popup: 'animate__animated animate__bounceInUp'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__bounceOutDown'
-            },
-        })
-    </script>
+        <script>
+            Swal.fire({
+                background: '#131414',
+                color: 'white',
+                title: 'Funcionalidad en desarrollo',
+                icon: 'warning',
+                text: "Se estan perfeccionando las funcionalidades [Vista previa del diseño final]",
+                //confirmButtonColor: '#46a525',
+                showClass: {
+                    popup: 'animate__animated animate__bounceInUp'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__bounceOutDown'
+                },
+            })
+        </script>
 
         <div class="home">
 
@@ -76,7 +77,7 @@
                         </a>
                     </td>
                     <td>
-                        <input id="" class="btn-registrar" value="Guardar" />
+                        <input type="button" id="" class="btn-registrar" value="Guardar" />
                     </td>
                 </table>
 
@@ -84,4 +85,7 @@
 
         </div>
     @endsection
+
+@else
+    <!-- -->
 @endif

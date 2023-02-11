@@ -1,13 +1,19 @@
+const baseUrl = "https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php"
+
 var barra = false;
 var res = screen.width;
 
 var ms = document.getElementById("mySidebar");
 var mn = document.getElementById("main");
-//var lb = document.getElementById("lab");
+var menu = document.getElementById("menu");
 
-const baseUrl = "https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php"
+function sidebar(){
+    menu.classList.add("openmenu");
+}
+function closebar(){
+    menu.classList.remove("openmenu");
+}
 
-// Si la resolucion es mas que la de un celular, se abre la navbar
 if (res > 767) {
     side()
 }
@@ -40,7 +46,7 @@ function closeNav() {
     }
 }
 
-$('.logout').on('click', function() {
+$('#logout').on('click', function() { // # -> Llamada por id
     if (res < 767)
         side()
     Swal.fire({
@@ -70,7 +76,7 @@ $('.logout').on('click', function() {
     })
 });
 
-$('.config').on('click', function() {
+$('.config').on('click', function() { // . -> Llamada por class
     if (res < 767)
         side();
     Swal.fire({
@@ -93,51 +99,43 @@ $('.config').on('click', function() {
         },
     })
     $('.edit').on('click', async function() {
-
         location.href= 'https://labmanufactura.net/SCEII/alumno/editar';
-        
-        /*
-        const { value: formValues } = await Swal.fire({
-            title: 'Editar perfil',
-            background: '#131414',
-            color: 'white',
-            
-            html:
-                '<form action="/action_page.php">'+
-                    '<label for="swal-input1">First name:</label>'+
-                    '<input type="text" id="swal-input1" class="swal2-input" name="swal-input1" style="width: 80%">'+
-                    
-                    '<label for="swal-input2">Last name:</label>'+
-                    '<input type="text" id="swal-input2" class="swal2-input" name="swal-input2" style="width: 80%">'+
-                    
-                    '<input type="submit" value="Submit">'+
-                '</form> ',
-                
-            focusConfirm: false,
-            preConfirm: () => {
-                return [
-                document.getElementById('swal-input1').value,
-                document.getElementById('swal-input2').value
-                ]
-            }
-        })
-        
-        if (formValues) {
-            Swal.fire(JSON.stringify(formValues))
-        }
-        */
-
     });
 });
 
 
-
-$('.perfil').on('click', function() {
+$('.perfil').on('click', function() { // . -> Llamada por class
     window.location.href = "https://labmanufactura.net/SCEII/alumno/perfil";
 });
 
-$('.about').on('click', function() {
+$('.about').on('click', function() { // . -> Llamada por class
     window.location.href = "https://labmanufactura.net/#about";
+});
+
+$('#asistencia').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/asistencia';
+});
+
+$('.calendario').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/calendario';
+});
+
+
+$('.encargado').click(function(){ // . -> Llamada por class
+    Swal.fire({
+        background: '#131414',
+        color: 'white',
+        imageUrl: fotoPerfil.value,
+        imageWidth: 200,
+        imageHeight: 200,
+        html: "<p><i class='fa-solid fa-user-group'></i> Encargado: "+encargado.value+"<br> <i class='fa-solid fa-envelope'></i> Correo: "+correo.value+" </p>",     
+        showClass: {
+            popup: 'animate__animated animate__bounceInUp'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__bounceOutDown'
+        },
+    })
 });
 
 async function addLab(token) {

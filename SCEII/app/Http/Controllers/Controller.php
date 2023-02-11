@@ -49,7 +49,7 @@ class Controller extends BaseController {
         //  if(session()->exists('data'))
         if(isset($_SESSION["data"])){
             if($_SESSION["data"]->tipoUsuario === "alumno"){
-                $this->getLaboratorios($_SESSION["data"]->token);
+                //$this->getLaboratorios($_SESSION["data"]->token);
                 return redirect()->route('alumno');
             }else if($_SESSION["data"]->tipoUsuario === "docente"){
                 return view('docente.home');
@@ -67,9 +67,10 @@ class Controller extends BaseController {
 
     public function alumno(){
         session_start();
-        if(isset($_SESSION["data"]))
+        if(isset($_SESSION["data"])){
+            $this->getLaboratorios($_SESSION["data"]->token);
             return view('alumno.home');
-        else{
+        }else{
             return redirect()->route('/');
         }
     }
@@ -146,7 +147,22 @@ class Controller extends BaseController {
     public function perfil(){
         session_start();
         if(isset($_SESSION["data"])){
-            return view('alumno.perfil');
+
+            $token = $_SESSION["data"]->token;
+            $responde = Http::withHeaders([
+                'Authorization' => $token,
+                'Content-Type' => 'application/json'
+            ])->get('https://labmanufactura.net/api-sceii/v1/routes/usuario.php');
+            if ($responde->successful()) {
+                $obj = $responde->Object();
+                $perfil = $obj->data[0];
+                $_SESSION["perfil"] = $perfil;
+                return view('alumno.perfil');
+            } else {
+                //echo "ERROR al buscar perfil";
+                return redirect()->route('/');
+            }
+
         }else{
             return redirect()->route('/');
         }
@@ -156,6 +172,44 @@ class Controller extends BaseController {
         session_start();
         if(isset($_SESSION["data"])){
             return view('alumno.editar');
+        }else{
+            return redirect()->route('/');
+        }
+    }
+
+    public function compas(){
+        session_start();
+        if(isset($_SESSION["data"])){
+            return view('alumno.compas');
+        }else{
+            return redirect()->route('/');
+        }
+    }
+
+    public function calendario(){
+        session_start();
+        if(isset($_SESSION["data"])){
+            $body = [
+                "id_laboratorio" => $_SESSION["id_laboratorio"],
+                "annio" => date("Y")
+            ];
+            $token = $_SESSION["data"]->token;
+            $responde = Http::withHeaders([
+                'Authorization' => $token,
+                'Content-Type' => 'application/json'
+            ])->post('https://labmanufactura.net/api-sceii/v1/routes/bitacora_calendar.php', $body);
+            if ($responde->successful()) {
+
+                $obj = $responde->Object();
+                $dias = $obj->data;
+                $_SESSION["asistencias"] = $dias;
+                return view('alumno.calendario');
+
+            } else {
+                //echo "ERROR al buscar asistencias";
+                return redirect()->route('/');
+            }
+            
         }else{
             return redirect()->route('/');
         }

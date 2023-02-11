@@ -146,7 +146,7 @@
 					</a>
 				</td>
 				<td>
-					<input id="btn_registrar" class="btn-registrar" value="Registrar" />
+					<input type="button" id="btn_registrar" class="btn-registrar" value="Registrar"/>
 				</td>
 			</table>
 		</form>

@@ -83,6 +83,7 @@
             <a href="registro">Crear una cuenta</a>
             <br>
             <!-- Iconos con vinculos a redes sociales -->
+            <!--
             <a href="https://www.facebook.com/" target="_bank">
                 <i class="fa-brands fa-facebook fa-2x"></i>
             </a>
@@ -92,6 +93,7 @@
             <a href="https://web.whatsapp.com/" target="_bank">
                 <i class="fa-brands fa-whatsapp fa-2x"></i>
             </a>
+            -->
             <!-- FIN Iconos con vinculos a redes sociales -->
             <!-- Iconos con vinculos a la Tienda -->
             <!--

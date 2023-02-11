@@ -1,9 +1,15 @@
     @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap");
 
-    /* ORGANIZAR POR: */
-    /*template*/
-    /*home*/
-    /*laboratorios*/
+    /* URGE ORGANIZAR ESTO >:'u */
+
+
+    /* ORGANIZAR EN ORDEN POR: */
+    /*alumno [template.alumno]*/
+    /*laboratorios (home)*/
+    /*laboratorio*/
+    /*asistencia*/
+    /*perfil*/
+    /*editar*/
 
     body {
         /*height: 100%;
@@ -63,13 +69,19 @@
         height: 20vh;
         width: 20vh;
         border-radius: 50%;
+        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
     }
 
     .icon-sm {
+        display: flex;
         float: right;
+        align-items: center;
+        justify-content: center;
         height: 9vh;
         width: 9vh;
         border-radius: 50%;
+        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
+        /* margin-top: 50%; */
     }
 
     .user {
@@ -101,6 +113,11 @@
     }
 
     .home {
+        padding: 7% 5% 1% 5%;
+        height: auto;
+    }
+
+    .cal {
         padding: 7% 5% 1% 5%;
         height: auto;
     }
@@ -251,6 +268,18 @@
         height: auto;
     }
 
+    .ai {
+        float: left;
+    }
+    .ad {
+        float: right;
+        font-weight: bold;
+    }
+
+    .conp{
+        padding: 0 20% 0 20%;
+    }
+
     .nomlab {
         font-size: calc(0.8em + 0.8vw);
         font-weight: bold;
@@ -267,19 +296,17 @@
     }
 
     .icon-detalle {
-        /*float: right;*/
-        /*vertical-align: middle;*/
-        text-align: center;
         font-size: calc(0.8em + 0.8vw);
-        padding-top: 4%;
-        margin-bottom: 2%;
-        height: 6vh;
-        width: 6vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 8vh;
+        width: 8vh;
         margin: 0 0 0 auto;
         border-radius: 50%;
-        width: 8vh;
-        height: 8vh;
         background: green; 
+        /* z-index: 35; */
     }
 
     .form-prac {
@@ -369,6 +396,35 @@
         border-radius: 50%;
     }
 
+
+
+    .imgperfil {
+        height: 30vh;
+        width: 30vh;
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
+    }
+
+    .conticonp {
+        /*position: relative;*/
+        margin-left: 55%;
+        padding-bottom: 5%;
+        /*padding-top: -10%;*/
+    }
+
+    .iconperfil {
+        /*position: absolute;*/
+        padding-top: 2%;
+        text-align: center;
+        height: 7vh;
+        width: 7vh;
+        background-color: #131414;
+        border-radius: 50%;
+    }
+
     .containerimg {
         font-size: calc(1.4em + 1.4vw);
         position: relative;
@@ -388,8 +444,8 @@
     .top-right {
         z-index: 10;
         position: absolute;
-        top: 12%;
-        right: 2%;
+        top: 14%;
+        right: 3%;
     }
 
     .openbtn {
@@ -421,6 +477,42 @@
         transition: margin-left .5s;
         /*padding: 16px;
         top: 40px;*/
+    }
+
+    .menu{
+        color: white;
+        /*padding: 0;*/
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: black;
+        width: 0;
+        height: 100vh;
+        opacity: 90%;
+        padding-top: 6%;
+        z-index: 20;
+        box-shadow: 30px 0 white;
+    }
+    
+    .openmenu{
+        width: 20%;
+    }
+
+    #menu{
+        transition: width .5s;
+    }
+
+    .icon-close{
+        font-size: calc(1.4em + 1.4vw);
+        padding-left: 5%;
+    }
+
+    .menucont{
+        /*position: absolute;*/
+        margin-top: 3%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .btn-circle {
@@ -660,7 +752,7 @@
     }*/
 
     .imgprox{
-        width: 10vw;
+        width: 15vw;
     }
 
     .eye {
@@ -687,7 +779,7 @@
         }
 
         .icon-sm {
-            margin-top: 4%;
+            margin-top: 2%;
             height: 8vh;
             width: 8vh;
         }
@@ -722,6 +814,11 @@
             padding: 22% 5% 1% 5%;
         }
 
+        .cal {
+            /*padding-top: 22%;*/
+            padding: 22% 5% 2% 5%;
+        }
+
         .asistencia {
             padding-top: 22%;
         }
@@ -745,7 +842,7 @@
             text-align: left;
         }
         .icon-detalle {
-            padding-top: 6%;
+            /* padding-top: 3%; */
             height: 5vh;
             width: 5vh;
         }
@@ -776,9 +873,18 @@
             font-size: calc(0.76em + 0.76vw);
             width: 40vw;
         }
+        .menu{
+            padding-top: 30%;
+        }
+        .openmenu{
+            width: 70%;
+        }
+        .conp{
+            padding: 0 0 0 0;
+        }
 
         .imgprox {
-            width: 80%;
+            width: 65%;
         }
 
         div.scrollmenu a {
