@@ -76,6 +76,10 @@ $('#logout').on('click', function() { // # -> Llamada por id
     })
 });
 
+$('#asistencia').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/asistencia';
+});
+
 $('.config').on('click', function() { // . -> Llamada por class
     if (res < 767)
         side();
@@ -103,24 +107,6 @@ $('.config').on('click', function() { // . -> Llamada por class
     });
 });
 
-
-$('.perfil').on('click', function() { // . -> Llamada por class
-    window.location.href = "https://labmanufactura.net/SCEII/alumno/perfil";
-});
-
-$('.about').on('click', function() { // . -> Llamada por class
-    window.location.href = "https://labmanufactura.net/#about";
-});
-
-$('#asistencia').on('click', function() { // . -> Llamada por class
-    window.location.href = location.href= window.location+'/asistencia';
-});
-
-$('.calendario').on('click', function() { // . -> Llamada por class
-    window.location.href = location.href= window.location+'/calendario';
-});
-
-
 $('.encargado').click(function(){ // . -> Llamada por class
     Swal.fire({
         background: '#131414',
@@ -136,6 +122,26 @@ $('.encargado').click(function(){ // . -> Llamada por class
             popup: 'animate__animated animate__bounceOutDown'
         },
     })
+});
+
+$('.perfil').on('click', function() { // . -> Llamada por class
+    window.location.href = "https://labmanufactura.net/SCEII/alumno/perfil";
+});
+
+$('.compas').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/compañeros';
+});
+
+$('.about').on('click', function() { // . -> Llamada por class
+    window.location.href = "https://labmanufactura.net/#about";
+});
+
+$('.help').on('click', function() { // . -> Llamada por class
+    window.location.href = "https://labmanufactura.net";
+});
+
+$('.calendario').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/calendario';
 });
 
 async function addLab(token) {

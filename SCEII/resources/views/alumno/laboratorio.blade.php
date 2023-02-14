@@ -30,7 +30,8 @@
                     </div>
 
                     <div class="pb-2">
-                        <a class=""><i class="fa-solid fa-user-group"></i> Compañeros</a>
+                        
+                        <a class="compas"><i class="fa-solid fa-user-group"></i> Compañeros</a>
                     </div>
 
                     <div class="pb-2">
@@ -42,7 +43,7 @@
                     </div>
 
                     <div class="pb-2">
-                        <a class=""><i class="fa-solid fa-circle-info"></i> Ayuda</a>
+                        <a class="help"><i class="fa-solid fa-circle-info"></i> Ayuda</a>
                     </div>
 
                     <div class="pb-2">
@@ -71,6 +72,12 @@
                     <a href=""><i class="fa-sharp fa-solid fa-earth-americas bg-secondary bg-gradient"></i></a>
                 </div>
                 -->
+
+
+                {{-- <div class="enlaces">
+                    
+                </div> --}}
+
                 <br>
                 <h3 class="titulo">Practicas</h3>
                 <br>

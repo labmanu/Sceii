@@ -14,7 +14,8 @@
     
     @section('content')
         <div class="asistencia">
-            <div id="qr">
+
+            <div id="qr" style="color: white">
                 <div id="qr-reader"></div>
                 <div id="qr-reader-results"></div>
                 <div id="result"></div>

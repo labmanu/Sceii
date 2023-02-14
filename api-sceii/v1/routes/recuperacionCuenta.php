@@ -1,10 +1,6 @@
 <?php
 header('Content-Type: application/json');
 include("../controllers/usuarioController.php");
-    
-    
-
-
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         $correo = $_REQUEST['correo'];
         $usuario = new usuarioController();
@@ -25,6 +21,4 @@ include("../controllers/usuarioController.php");
         $usuario->cambiaPassword($data);//only correo y codigo
         exit;
     }
-    
-   
 ?>

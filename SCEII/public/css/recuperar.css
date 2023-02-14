@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@100;300&display=swap");
-body {
+
+body{
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     background-color: #131414;
@@ -17,11 +18,10 @@ body {
     text-align: center;
 }
 
-.form-login {
+.form-recuperar {
     position: relative;
     background-color: #17202a;
     width: 45vw;
-    /* min-height: 65vh; */
     height: auto;
     padding: 3% 7% 3% 7%;
     box-shadow: 0 0 30px black;
@@ -37,9 +37,12 @@ body {
 
 .titulo {
     font-size: calc(1.2em + 1.2vw) !important;
-    text-align: left;
     font-weight: bold;
-    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.desc{
+    white-space: normal;
 }
 
 .inputContainer {
@@ -49,8 +52,8 @@ body {
     margin-bottom: 2%;
 }
 
-.input-login,
-.input-login-error {
+.input-recuperar,
+.input-recuperar-error {
     position: absolute;
     padding: 1em;
     top: 0px;
@@ -65,7 +68,7 @@ body {
     z-index: 3;
 }
 
-.input-login-error {
+.input-recuperar-error {
     border: 2px solid red;
 }
 
@@ -90,6 +93,17 @@ body {
     background-color: #17202a;
     transition: 0.5s;
     z-index: 1;
+}
+
+.valicode{
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    border: 2px solid #fff;
+    border-radius: 20px 20px 20px 20px;
+    color: white;
+    outline: none;
+    background: none;
 }
 
 .eye {
@@ -127,39 +141,59 @@ body {
     transform: translateY(-2px);
 }
 
-.input-login:focus+.labelform {
+.cancelBtn {
+    display: block;
+    width: 50%;
+    text-align: center;
+    padding: 2% 2%;
+    border: none;
+    background-color: #a52525;
+    font-weight: bold;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.cancelBtn:hover {
+    background-color: red;
+    transform: translateY(-2px);
+}
+
+.input-recuperar:focus+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
     font-size: calc(0.48em + 0.48vw) !important;
 }
 
-.input-login-error:focus+.labelform {
+.input-recuperar-error:focus+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
     font-size: calc(0.48em + 0.48vw) !important;
 }
 
-.input-login:not(:placeholder-shown)+.labelform {
+.input-recuperar:not(:placeholder-shown)+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
     font-size: calc(0.48em + 0.48vw) !important;
 }
 
-.input-login-error:not(:placeholder-shown)+.labelform {
+.input-recuperar-error:not(:placeholder-shown)+.labelform {
     top: -7px;
     left: 3px;
     z-index: 10;
     font-size: calc(0.48em + 0.48vw) !important;
 }
 
-.input-login:focus {
+.input-recuperar:focus {
     border: 2px solid green;
 }
 
-.input-login-error:focus {
+.input-recuperar-error:focus {
     border: 2px solid red;
 }
 
@@ -172,91 +206,13 @@ a:visited {
     color: #46a525;
 }
 
-a.cancelBtn:visited {
+/* a.cancelBtn:visited {
     color: white;
-}
+} */
 
 a:hover {
     color: green;
 }
-
-
-/* BOTON DESLIZABLE*/
-
-
-/* Formateamos el label que servirá de contenedor */
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-}
-
-
-/* Ocultamos el checkbox html */
-
-.switch input {
-    display: none;
-}
-
-
-/* Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: hsla(0, 0%, 100%, 0.5);
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-
-/* Pintamos la perilla de control o slider usando el selector before */
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-
-/* Cambiamos el color de fondo cuando el checkbox esta activado */
-
-input:checked+.slider {
-    background-color: #46a525;
-}
-
-
-/* Deslizamos el slider a la derecha cuando el checkbox esta activado */
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-
-/* Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 
 /* SMARTPHONE */
 
@@ -265,10 +221,11 @@ input:checked+.slider:before {
         font-size: calc(1em + 1vw);
     }
     .formulario {
+        /* margin: 0 0 auto 0; */
         padding-bottom: 0%;
         margin-bottom: 0%;
     }
-    .form-login {
+    .form-recuperar {
         border-radius: 30px 30px 0px 0px;
         -webkit-border-radius: 30px 30px 0px 0px;
         -moz-border-radius: 30px 30px 0px 0px;
@@ -280,6 +237,9 @@ input:checked+.slider:before {
         margin-top: 2%;
         height: 25vh;
     }
+    .desc {
+        font-size: calc(0.6em + 0.6vw);
+    }
     .inputContainer {
         margin-bottom: 5%;
         height: 9vh;
@@ -287,16 +247,19 @@ input:checked+.slider:before {
     .submitBtn {
         width: 100%;
     }
-    .input-login:focus+.labelform {
+    .cancelBtn {
+        width: 100%;
+    }
+    .input-recuperar:focus+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
-    .input-login-error:focus+.labelform {
+    .input-recuperar-error:focus+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
-    .input-login:not(:placeholder-shown)+.labelform {
+    .input-recuperar:not(:placeholder-shown)+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
-    .input-login-error:not(:placeholder-shown)+.labelform {
+    .input-recuperar-error:not(:placeholder-shown)+.labelform {
         font-size: calc(0.6em + 0.6vw) !important;
     }
     .titulo {
@@ -312,7 +275,7 @@ input:checked+.slider:before {
     body {
         font-size: calc(1.3em + 1.3vw);
     }
-    .form-login {
+    .form-recuperar {
         width: 90vw;
         height: 60vh;
     }
