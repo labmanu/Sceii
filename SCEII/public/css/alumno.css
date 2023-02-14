@@ -400,6 +400,7 @@
         height: 5vw;
         width: 5vw;
         border-radius: 50%;
+        margin-right: 2%;
     }
 
     .nom-compas{
@@ -782,6 +783,11 @@
         overflow-x: scroll;
     }
 
+    .comp{
+        display: flex;
+        align-items: center;
+    }
+
     /* SMARTPHONE */
 
     @media screen and (max-width: 767px) {
@@ -911,7 +917,10 @@
             width: 14vw;
         }
         .comp{
-            font-size: calc(0.65em + 0.65vw);
+            font-size: calc(0.7em + 0.7vw);
+        }
+        .titulo {
+            font-size: calc(1.2em + 1.2vw) !important;
         }
 
         div.scrollmenu a {
