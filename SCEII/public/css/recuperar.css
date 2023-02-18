@@ -35,6 +35,11 @@ body{
     height: 22vh;
 }
 
+.icon-rec {
+    filter: drop-shadow(0 20px 10px rgba(0, 0, 0, 10));
+    height: 30vh;
+}
+
 .titulo {
     font-size: calc(1.2em + 1.2vw) !important;
     font-weight: bold;
@@ -236,6 +241,10 @@ a:hover {
     .icon-logo {
         margin-top: 2%;
         height: 25vh;
+    }
+    .icon-rec {
+        margin-top: 2%;
+        height: 30vh;
     }
     .desc {
         font-size: calc(0.6em + 0.6vw);

@@ -30,7 +30,7 @@
                                             <div class="jefelab">
                                                 {{ $lab->jefe_laboratorio }}
                                             </div>
-                                            <div class="icon-detalle" onclick="enc()">
+                                            <div class="icon-detalle">
                                                 <i class="fa-solid fa-flask-vial"></i>
                                             </div>
                                         </div>
@@ -59,5 +59,5 @@
     @endsection
 
 @else
-    <!-- -->
+    <!-- REDIRECT -->
 @endif

@@ -76,7 +76,7 @@ $('#logout').on('click', function() { // # -> Llamada por id
     })
 });
 
-$('#asistencia').on('click', function() { // . -> Llamada por class
+$('#asistencia').on('click', function() { // . -> Llamada por id
     window.location.href = location.href= window.location+'/asistencia';
 });
 
@@ -141,7 +141,9 @@ $('.help').on('click', function() { // . -> Llamada por class
 });
 
 $('.calendario').on('click', function() { // . -> Llamada por class
-    window.location.href = location.href= window.location+'/calendario';
+    var today = new Date();
+    var year = today.getFullYear();
+    window.location.href = location.href= window.location+'/calendario?anio='+year;
 });
 
 async function addLab(token) {

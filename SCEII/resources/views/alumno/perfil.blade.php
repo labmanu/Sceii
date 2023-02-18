@@ -1,4 +1,4 @@
-@if(isset($_SESSION["data"]))
+@if(isset($_SESSION["data"]) && isset($_SESSION["perfil"]))
 
     @extends('templates.alumno')
     @section('title', 'Perfil de '.$_SESSION["perfil"]->nombre )
@@ -81,10 +81,10 @@
                     <div style="clear: both;"></div>
                     <hr>
                 </div>
-            </div>
+            </div> 
         </div>
     @endsection
     
 @else
-    <!-- -->
+    <!-- REDIRECT -->
 @endif

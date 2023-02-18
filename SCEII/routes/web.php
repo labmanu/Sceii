@@ -25,7 +25,10 @@ Route::get('/confirmarCuenta/{token}',  [ConfirmController::class,'start'])->nam
 
 // Recuperar contraseña
 Route::get('/recuperar', [Controller::class,'recuperar'])->name('recuperar');
-Route::post('/recuperar/validar', [Controller::class,'validar'])->name('validar');
+//Route::post('/recuperar/validar', [Controller::class,'validar'])->name('validar');
+Route::get('/recuperar/validar', [Controller::class,'validar'])->name('validar');
+//Route::get('/recuperar/validar/confirmar', [Controller::class,'confirmar'])->name('confirmar');
+Route::post('/recuperar/validar/confirmar', [Controller::class,'confirmar'])->name('confirmar');
 
 // Control de Usuarios
 Route::post('/login', [Controller::class,'login'])->name('redireccion.login');

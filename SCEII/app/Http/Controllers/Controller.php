@@ -25,14 +25,34 @@ class Controller extends BaseController {
     }
 
     public function validar(){
-        if(isset($_POST["correo"])){
-            /*
-                Validar correo y enviar código
-            */
-            return view('recuperar.validar');
-        }else{
-            return redirect()->route('/');
-        }
+        return view('recuperar.validar');
+        // if(isset($_POST["correo"])){
+        //     $responde = Http::get('https://labmanufactura.net/api-sceii/v1/routes/recuperacionCuenta.php?correo='.$_POST["correo"]);
+        //     if ($responde->successful()) {
+        //         $obj = $responde->Object();
+        //         $msj = $obj->message;
+        //         $code = $obj->data->codigo;
+        //         //echo $msj." ".$code;
+        //         //$_POST["correo"] = $_POST["correo"];
+        //         $_POST["msj"] = $msj; 
+        //         $_POST["code"] = $code;
+        //         //echo $_POST["msj"]." ".$_POST["code"];  
+        //         return view('recuperar.validar');
+        //     } else {
+        //         //echo "ERROR al enviar el código";
+        //     }
+        // }else{
+        //     // echo "No existe el correo";
+        //     return redirect()->route('/');
+        // }
+    }
+
+    public function verificar(){
+        return view('recuperar.validar');
+    }
+
+    public function confirmar(){
+        return view('recuperar.confirmar');
     }
 
     public function login(Request $request){
@@ -183,11 +203,11 @@ class Controller extends BaseController {
 
     public function calendario(){
         session_start();
-        if(isset($_SESSION["data"]) && isset($_SESSION["laboratorios"]) 
+        if(isset($_SESSION["data"]) && isset($_GET["anio"]) && isset($_SESSION["laboratorios"]) 
         && isset($_SESSION["laboratorio"]) && isset($_SESSION["id_laboratorio"])){
             $body = [
                 "id_laboratorio" => $_SESSION["id_laboratorio"],
-                "annio" => date("Y")
+                "annio" => $_GET["anio"]
             ];
             $token = $_SESSION["data"]->token;
             $responde = Http::withHeaders([
@@ -213,13 +233,6 @@ class Controller extends BaseController {
         session_start();
         if(isset($_SESSION["data"]) && isset($_SESSION["laboratorios"]) 
         && isset($_SESSION["laboratorio"]) && isset($_SESSION["id_laboratorio"])){
-            /*
-                Obtener compañeros
-            */
-
-
-
-            
             $responde = Http::get('https://labmanufactura.net/api-sceii/v1/routes/laboratorio.php?id_lab='.$_SESSION["id_laboratorio"]);
             if ($responde->successful()) {
                 $obj = $responde->Object();
@@ -230,12 +243,6 @@ class Controller extends BaseController {
                 //echo "ERROR al buscar compañeros";
                 return redirect()->route('/')->with('msj', '');
             }
-
-
-
-
-            
-            // return view('alumno.compas');
         }else{
             return redirect()->route('/')->with('msj', '');
         }

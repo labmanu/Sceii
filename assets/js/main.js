@@ -143,11 +143,7 @@ themeButton.addEventListener('click', () => {
     }else{
         document.getElementById('logo_img').src ="https://labmanufactura.net/assets/img/faviconLight.png";
     }
-   
 })
-
-
-
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
