@@ -28,12 +28,18 @@
 
                 <!--<input type="hidden" name="operacion" value="registro" />-->
                 <h3 class="titulo py-2 text-end">Editar perfil</h3>
-                <img src="{{$_SESSION["data"]->fotoPerfil}}" alt="editar" class="imgeditar">
-                <div class="conticon">
-                    <div class="iconeditar">
-                        <i class="fa-solid fa-camera-rotate"></i>
+
+                <div class="fotop" for="profile_pic">
+                    <img src="{{$_SESSION["data"]->fotoPerfil}}" alt="editar" class="imgeditar">
+                    <div class="texto-encima">
+                        <div class="iconeditar">
+                            <i class="fa-solid fa-camera-rotate"></i>
+                        </div>
+                        {{-- <input type="file" accept=".jpg, .jpeg, .png" /> --}}
                     </div>
                 </div>
+                <br>
+
                 <div class="inputContainer">
                     <input name="nombre" type="text" class="input-edit" id="nombre" placeholder="a" required />
                     <label class="labelform">

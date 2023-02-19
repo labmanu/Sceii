@@ -13,25 +13,18 @@
     <!-- -->
     @section('content')
         <div class="cal">
-
-            
+            {{-- filtro --}}
             <div class="text-center">
-                {{-- filtro --}}
-                Año de Asistencias: 
+                Año: 
                 <select name="anio" id="anio" style="width: auto">
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
+                    {{-- Rango de 2023 - 2030 --}}
+                    @for ($i = 2023; $i <= 2030; $i++)
+                        <option value="{{$i}}" onclick="window.location.href=url+anio.value" {{ $_GET['anio'] == $i ? "selected" : "" }} >{{$i}}</option>
+                    @endfor
                 </select>
-                <input type="button" value="Filtrar" onclick="window.location.href=url+anio.value">
-                {{-- fin filtro --}}
+                {{-- Por algun motivo en celular no redirecciona automaticamente --}}
+                <input type="button" value="Filtrar" class="" onclick="window.location.href=url+anio.value">
             </div>
-            
-
             {{-- Aquí esta toda la magia uwu --}}
             <div class="cal1"></div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
