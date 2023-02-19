@@ -14,9 +14,9 @@
     @section('content')
         <div class="cal">
             {{-- filtro --}}
-            <div class="text-center">
+            <div class="text-center mt-2">
                 Año: 
-                <select name="anio" id="anio" style="width: auto">
+                <select name="anio" id="anio" style="height: auto; width: auto;">
                     {{-- Rango de 2023 - 2030 --}}
                     @for ($i = 2023; $i <= 2030; $i++)
                         <option value="{{$i}}" onclick="window.location.href=url+anio.value" {{ $_GET['anio'] == $i ? "selected" : "" }} >{{$i}}</option>

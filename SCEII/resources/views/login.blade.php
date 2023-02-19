@@ -94,6 +94,7 @@
                     <i class="fa-brands fa-whatsapp fa-2x"></i>
                 </a>
                 -->
+                
                 <!-- FIN Iconos con vinculos a redes sociales -->
                 <!-- Iconos con vinculos a la Tienda -->
                 <!--

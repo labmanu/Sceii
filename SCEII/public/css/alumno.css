@@ -160,7 +160,7 @@
 
     .inputContainer {
         position: relative !important;
-        height: 10vh;
+        height: 4rem;
         width: 100%;
         margin-bottom: 2%;
     }
@@ -246,9 +246,9 @@
     select {
         position: relative;
         background: transparent;
-        height: 9vh;
+        height: 4rem;
         width: 100%;
-        padding: 5px;
+        padding: 0 1em 0 1em;
         border: 2px solid #fff;
         border-radius: 20px 20px 20px 20px;
         color: white;
@@ -424,8 +424,8 @@
 
     .texto-encima{
         position: absolute;
-        top: 90%;
-        left: 60%;
+        top: 105%;
+        left: 58%;
         transform: translate(-50%, -50%);
     }
 
@@ -890,11 +890,11 @@
         }
         .inputContainer {
             margin-bottom: 5%;
-            height: 9vh;
+            /* height: 9vh; */
         }
         select {
             margin-bottom: 5%;
-            height: 9vh;
+            /* height: 9vh; */
         }
         .btn-registrar {
             font-size: calc(0.76em + 0.76vw);

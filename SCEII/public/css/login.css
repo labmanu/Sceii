@@ -32,7 +32,7 @@ body {
 
 .icon-logo {
     filter: drop-shadow(0 20px 10px rgba(0, 0, 0, 10));
-    height: 22vh;
+    height: 9rem;
 }
 
 .titulo {
@@ -44,7 +44,7 @@ body {
 
 .inputContainer {
     position: relative !important;
-    min-height: 10vh;
+    min-height: 4rem;
     width: 100%;
     margin-bottom: 2%;
 }
@@ -278,11 +278,11 @@ input:checked+.slider:before {
     }
     .icon-logo {
         margin-top: 2%;
-        height: 25vh;
+        height: 10rem;
     }
     .inputContainer {
         margin-bottom: 5%;
-        height: 9vh;
+        /* height: 5rem; */
     }
     .submitBtn {
         width: 100%;
@@ -317,6 +317,6 @@ input:checked+.slider:before {
         height: 60vh;
     }
     .icon-logo {
-        height: 24vh;
+        height: 8rem;
     }
 }

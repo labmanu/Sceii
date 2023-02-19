@@ -1,0 +1,91 @@
+/**********File Inputs**********/
+.container-input {
+    text-align: center;
+    /* background: #282828; */
+    /* border-top: 5px solid #17202a; */
+    /* padding: 50px 0; */
+    border-radius: 6px;
+    /* width: 50%; */
+    margin: 0 auto;
+    /* margin-bottom: 20px; */
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.iborrainputfile {
+	font-size:16px; 
+	font-weight:normal;
+	font-family: 'Lato';
+}
+
+/* style 5 */
+
+label {
+    color: white !important;
+}
+
+label:hover {
+    color: antiquewhite !important;
+}
+
+.inputfile-5 + label {
+    color: #17202a;
+}
+
+.inputfile-5:focus + label,
+.inputfile-5.has-focus + label,
+.inputfile-5 + label:hover {
+    color: #29323d;
+}
+
+.inputfile-5 + label figure {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #17202a;
+    display: block;
+    padding: 10px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-5:focus + label figure,
+.inputfile-5.has-focus + label figure,
+.inputfile-5 + label:hover figure {
+    background-color: #29323d;
+}
+
+.inputfile-5 + label svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+/**********End File Inputs**********/

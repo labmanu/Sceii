@@ -153,9 +153,22 @@ class Controller extends BaseController {
     public function editar(){
         session_start();
         if(isset($_SESSION["data"])){
-            return view('alumno.editar');
+            $token = $_SESSION["data"]->token;
+            $responde = Http::withHeaders([
+                'Authorization' => $token,
+                'Content-Type' => 'application/json'
+            ])->get('https://labmanufactura.net/api-sceii/v1/routes/usuario.php');
+            if ($responde->successful()) {
+                $obj = $responde->Object();
+                $perfil = $obj->data[0];
+                $_SESSION["perfil"] = $perfil;
+                return view('alumno.editar');
+            } else {
+                //echo "ERROR al buscar perfil";
+                return redirect()->route('/')->with('msj', '');
+            }
         }else{
-            return redirect()->route('/');
+            return redirect()->route('/')->with('msj', '');
         }
     }
 

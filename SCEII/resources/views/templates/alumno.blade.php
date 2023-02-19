@@ -29,6 +29,7 @@
             <link rel="icon" href="{{ asset('public/assets/logo.png')}}">
             <link rel="stylesheet" href="{{ asset('public/css/alumno.css')}}">
             <link rel="stylesheet" href="{{ asset('public/css/clndr.css')}}">
+            <link rel="stylesheet" href="{{ asset('public/css/inputfile.css')}}">
             <!-- Titulo de la página -->
             <title>@yield('title')</title>
         </head>
@@ -98,6 +99,7 @@
             </div>
 
             <script  type="text/javascript" src="{{ asset('public/js/alumno.js') }}"></script>
+            <script  type="text/javascript" src="{{ asset('public/js/inputfile.js') }}"></script>
 
         </body>
         <!-- FIN Cuerpo de la página -->
