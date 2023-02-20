@@ -46,21 +46,9 @@
             </div>
             <div id="lab" class="infolab">
                 <h3 class="titulo">Enlaces</h3>
-                <!--
-                <div class="scrollmenu animate__animated animate__bounceInLeft">
-                    <a href=""><i class="fa-brands fa-youtube bg-danger bg-gradient"></i></a>
-                    <a href=""><i class="fa-brands fa-google bg-warning bg-gradient"></i></a>
-                    <a href=""><i class="fa-brands fa-facebook bg-primary bg-gradient"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter bg-info bg-gradient"></i></a>
-                    <a href=""><i class="fa-brands fa-spotify bg-success bg-gradient"></i></a>
-                    <a href=""><i class="fa-sharp fa-solid fa-earth-americas bg-secondary bg-gradient"></i></a>
-                    <a href=""><i class="fa-sharp fa-solid fa-earth-americas bg-secondary bg-gradient"></i></a>
-                    <a href=""><i class="fa-sharp fa-solid fa-earth-americas bg-secondary bg-gradient"></i></a>
-                    <a href=""><i class="fa-sharp fa-solid fa-earth-americas bg-secondary bg-gradient"></i></a>
-                </div>
-                -->
-                {{-- <div class="enlaces">
-                </div> --}}
+                
+
+                
                 <br>
                 <h3 class="titulo">Practicas</h3>
                 <br>

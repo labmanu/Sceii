@@ -6,7 +6,7 @@
     /* padding: 50px 0; */
     border-radius: 6px;
     /* width: 50%; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* margin-bottom: 20px; */
 }
 
@@ -20,7 +20,7 @@
 }
 
 .inputfile + label {
-    max-width: 80%;
+    max-width: 100%;
     font-size: 1.25rem;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -28,7 +28,7 @@
     cursor: pointer;
     display: inline-block;
     overflow: hidden;
-    padding: 0.625rem 1.25rem;
+    /* padding: 0.625rem 1.25rem; */
 }
 
 .inputfile + label svg {
@@ -36,8 +36,6 @@
     height: 1em;
     vertical-align: middle;
     fill: currentColor;
-    margin-top: -0.25em;
-    margin-right: 0.25em;
 }
 
 .iborrainputfile {

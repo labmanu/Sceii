@@ -2,10 +2,17 @@
 
     @extends('templates.alumno')
     @section('title', 'Editar perfil de '.$_SESSION["data"]->nombre )
+
+    <!-- -->
+    <script >
+        var token = '<?php echo $_SESSION["data"]->token; ?>';
+        var perfil = '<?php echo json_encode($_SESSION["perfil"]) ?>';
+    </script>
+    <!-- -->
    
     @section('content')
 
-        <script>
+        {{-- <script>
             Swal.fire({
                 background: '#131414',
                 color: 'white',
@@ -20,7 +27,7 @@
                     popup: 'animate__animated animate__bounceOutDown'
                 },
             })
-        </script>
+        </script> --}}
 
         <div class="home">
 
@@ -35,12 +42,12 @@
                         <div class="container-input">
                             <input type="file" name="file-5" id="file-5" class="inputfile inputfile-5" accept=".jpg, .jpeg, .png" />
                             <label for="file-5">
-                                <figure>
+                                <figure style="display: flex; justify-content: center; align-items: center;">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM384 256c0 8.8-7.2 16-16 16H291.3c-6.2 0-11.3-5.1-11.3-11.3c0-3 1.2-5.9 3.3-8L307 229c-13.6-13.4-31.9-21-51-21c-19.2 0-37.7 7.6-51.3 21.3L185 249c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l19.7-19.7C193.4 172.7 224 160 256 160c31.8 0 62.4 12.6 85 35l23.7-23.7c2.1-2.1 5-3.3 8-3.3c6.2 0 11.3 5.1 11.3 11.3V256zM128 320c0-8.8 7.2-16 16-16h76.7c6.2 0 11.3 5.1 11.3 11.3c0 3-1.2 5.9-3.3 8L205 347c13.6 13.4 31.9 21 51 21c19.2 0 37.7-7.6 51.3-21.3L327 327c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-19.7 19.7C318.6 403.3 288 416 256 416c-31.8 0-62.4-12.6-85-35l-23.7 23.7c-2.1 2.1-5 3.3-8 3.3c-6.2 0-11.3-5.1-11.3-11.3V320z"/>
                                     </svg>   
                                 </figure>
-                                <span class="iborrainputfile">Seleccionar archivo</span>
+                                <span class="iborrainputfile">Seleccionar foto</span>
                             </label>
                         </div>
                     </div>
@@ -60,7 +67,7 @@
                     </label>
                 </div>
                 <div class="inputContainer">
-                    <input name="clave" type="password" class="input-edit" id="clave" placeholder="a" required />
+                    <input name="nclave" type="password" class="input-edit" id="nclave" placeholder="a" required />
                     <label class="labelform" style="background: #131414;">
                         <i class="fa-solid fa-key"></i> Nueva contraseña:
                     </label>
@@ -71,12 +78,12 @@
                     <option value="o" {{ $_SESSION['perfil']->genero == "o" ? "selected" : "" }} >Otro</option>
                 </select>
                 <div class="inputContainer">
-                    <input name="fecha_nacimiento" type="date" class="input-edit" id="date" placeholder="a" value="{{ $_SESSION['perfil']->fecha_Nac }}" required />
+                    <input name="fecha" type="date" class="input-edit" id="fecha" placeholder="a" value="{{ $_SESSION['perfil']->fecha_Nac }}" required />
                     <label class="labelform" style="background: #131414;">
                         <i class="fa-solid fa-calendar-days"></i> Fecha de Nacimiento:
                     </label>
                 </div>
-                <h6 class="mt-3">Confirma tu contraseña actual: </h6>
+                <h5 class="mt-3">Confirma tu contraseña actual: </h5>
                 <div class="inputContainer">
                     <input name="clave" type="password" class="input-edit" id="clave" placeholder="a" required />
                     <label class="labelform" style="background: #131414;">
@@ -91,13 +98,14 @@
                         </a>
                     </td>
                     <td>
-                        <input type="button" id="" class="btn-registrar" value="Guardar" />
+                        <input type="button" id="btn-editar" class="btn-registrar" value="Guardar" />
                     </td>
                 </table>
 
             </form>
 
         </div>
+        <script  type="text/javascript" src="{{ asset('public/js/editar.js') }}"></script>
     @endsection
 
 @else

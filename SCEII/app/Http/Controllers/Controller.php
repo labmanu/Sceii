@@ -140,6 +140,14 @@ class Controller extends BaseController {
                 $obj = $responde->Object();
                 $perfil = $obj->data[0];
                 $_SESSION["perfil"] = $perfil;
+                /* Actualizar DATA [En caso de que se haya editado el usuario] */
+                if($_SESSION["data"]->fotoPerfil != $_SESSION["perfil"]->fotoPerfil)
+                    $_SESSION["data"]->fotoPerfil = $_SESSION["perfil"]->fotoPerfil;
+                if($_SESSION["data"]->nombre != $_SESSION["perfil"]->nombre)
+                    $_SESSION["data"]->nombre = $_SESSION["perfil"]->nombre;
+                if($_SESSION["data"]->apellidos != $_SESSION["perfil"]->apellidos)
+                    $_SESSION["data"]->apellidos = $_SESSION["perfil"]->apellidos;
+                /* FIN DATA */
                 return view('alumno.perfil');
             } else {
                 //echo "ERROR al buscar perfil";

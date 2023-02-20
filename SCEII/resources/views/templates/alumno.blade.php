@@ -99,7 +99,6 @@
             </div>
 
             <script  type="text/javascript" src="{{ asset('public/js/alumno.js') }}"></script>
-            <script  type="text/javascript" src="{{ asset('public/js/inputfile.js') }}"></script>
 
         </body>
         <!-- FIN Cuerpo de la página -->

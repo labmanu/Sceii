@@ -2,18 +2,7 @@
 
     /* URGE ORGANIZAR ESTO >:'u */
 
-
-    /* ORGANIZAR EN ORDEN POR: */
-    /*alumno [template.alumno]*/
-    /*laboratorios (home)*/
-    /*laboratorio*/
-    /*asistencia*/
-    /*perfil*/
-    /*editar*/
-
     body {
-        /*height: 100%;
-        max-height: auto;*/
         font-family: "Poppins", sans-serif;
         box-sizing: border-box;
         background-color: #131414;
@@ -46,14 +35,12 @@
     .sidebar a:hover {
         color: #46a525;
         transform: translateY(-2px);
-        /*background-color: #46a525;*/
     }
 
     a,
     a:visited {
         color: white;
         padding: 0% 3% 0% 10%;
-        /*color: #46a525;*/
         text-decoration: none;
     }
 
@@ -66,22 +53,17 @@
     }
 
     .icon-logo {
-        height: 20vh;
-        width: 20vh;
+        height: 8rem;
+        width: 8rem;
         border-radius: 50%;
-        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
     }
 
     .icon-sm {
         display: flex;
         float: right;
-        align-items: center;
-        justify-content: center;
-        height: 9vh;
-        width: 9vh;
+        height: 3.6rem;
+        width: 3.6rem;
         border-radius: 50%;
-        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
-        /* margin-top: 50%; */
     }
 
     .user {
@@ -305,8 +287,7 @@
         width: 8vh;
         margin: 0 0 0 auto;
         border-radius: 50%;
-        background: green; 
-        /* z-index: 100; */
+        background: green;
     }
 
     .form-prac {
@@ -314,7 +295,6 @@
         background-color: #17202A;
         width: 100%;
         height: 300px;
-        /*border-radius: 18px;*/
         padding: 0;
         font-weight: bold;
         text-shadow: 0.1em 0.1em 0.2em black;
@@ -323,7 +303,6 @@
     }
 
     .lab {
-        /*background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);*/
         position: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -350,50 +329,29 @@
         height: auto;
         padding: 3% 5% 3% 5%;
         box-shadow: 0px 4px 200px black;
-        /*border-radius: 30px 30px 30px 30px;
-        -webkit-border-radius: 30px 30px 30px 30px;
-        -moz-border-radius: 30px 30px 30px 30px;*/
         opacity: 90%;
     }
 
     .editar {
-        /*padding-top: 22%;*/
         position: relative;
-        /* background-color: #17202a; */
         width: 70%;
         margin: 0 auto;
         max-height: auto;
         padding: 3% 4% 1% 4%;
-        /* box-shadow: 0 0 30px black;
-        border-radius: 30px 30px 30px 30px;
-        -webkit-border-radius: 30px 30px 30px 30px;
-        -moz-border-radius: 30px 30px 30px 30px; */
     }
 
     .imgeditar {
-        height: 30vh;
-        width: 30vh;
+        height: 12rem;
+        width: 12rem;
         border-radius: 50%;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .iconeditar {
-        /*position: absolute;*/
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        height: 7vh;
-        width: 7vh;
-        background-color: #17202a;
-        border-radius: 50%;
-    }
-
     .img-compas{
-        height: 5vw;
-        width: 5vw;
+        height: 3rem;
+        width: 3rem;
         border-radius: 50%;
         margin-right: 2%;
     }
@@ -406,13 +364,13 @@
     }
 
     .imgperfil {
-        height: 30vh;
-        width: 30vh;
+        height: 12rem;
+        width: 12rem;
         border-radius: 50%;
+        /* box-shadow: 0 0 40px rgb(0 0 0 / 0.4); */
         display: block;
         margin-left: auto;
         margin-right: auto;
-        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
     }
 
     .fotop {
@@ -430,14 +388,11 @@
     }
 
     .conticonp {
-        /*position: relative;*/
         margin-left: 55%;
         padding-bottom: 5%;
-        /*padding-top: -10%;*/
     }
 
     .iconperfil {
-        /*position: absolute;*/
         padding-top: 2%;
         text-align: center;
         height: 7vh;
@@ -470,23 +425,23 @@
     }
 
     .openbtn {
-        border-radius: 0 0 30px 30px;
-        -webkit-border-radius: 0 0 30px 30px;
-        -moz-border-radius: 0 0 30px 30px;
+        position: fixed;
         vertical-align: middle;
+        background-color: #17202A;
         left: 0;
         top: 0;
         right: 0;
-        position: fixed;
         width: 100%;
         cursor: pointer;
-        background-color: #17202A;
         color: white;
         padding: 1% 2% 1% 3%;
-        border: none;
         text-align: left;
         margin-bottom: 1%;
+        border: none;
         box-shadow: 0 0 30px black;
+        border-radius: 0 0 30px 30px;
+        -webkit-border-radius: 0 0 30px 30px;
+        -moz-border-radius: 0 0 30px 30px;
         z-index: 30;
     }
 
@@ -496,13 +451,10 @@
 
     #main {
         transition: margin-left .5s;
-        /*padding: 16px;
-        top: 40px;*/
     }
 
     .menu{
         color: white;
-        /*padding: 0;*/
         position: fixed;
         top: 0;
         right: 0;
@@ -529,7 +481,6 @@
     }
 
     .menucont{
-        /*position: absolute;*/
         margin-top: 3%;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -582,7 +533,6 @@
         background-color: #46a525;
         font-weight: bold;
         color: white;
-        /*border-radius: 60px;*/
         cursor: pointer;
         margin-top: 2%;
         margin-bottom: 2%;
@@ -632,12 +582,6 @@
         transform: translateY(-2px);
     }
 
-    /*.imgTipo {
-        height: 18vh;
-        margin: auto;
-        margin-bottom: 2%;
-    }*/
-
     .separador {
         border: 1px solid white;
         margin-left: 8%;
@@ -652,128 +596,8 @@
         overflow: hidden;
     }
 
-    div.scrollmenu {
-        height: auto;
-        overflow: auto;
-        white-space: nowrap;
-    }
-
-    div.scrollmenu a {
-        font-size: calc(1.4em + 1.4vw);
-        background-color: #333;
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 2%;
-        height: 15vh;
-        width: 15vh;
-        border-radius: 50%;
-        text-decoration: none;
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-
-    div.scrollmenu a:hover {
-        background-color: #777;
-    }
-
-    .wrapper {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        /*text-align: center;*/
-        justify-content: space-between;
-    }
-
-    .wrapper .card {
-        background: transparent;
-        /*width: calc(25% - 8px);*/
-        width: 100%;
-        height: 300px; /**/
-        /*border-radius: 5px;*/
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        flex-direction: column;
-        /*box-shadow: 0px 10px 15px white;*/
-    }
-
-    .wrapper .card .circle {
-        position: relative;
-        /*height: 150px;*/
-        /*width: 150px;*/
-        border-radius: 50%;
-        cursor: default;
-    }
-
-    .card .circle .box,
-    .card .circle .box span {
-        position: absolute;
-        top: 48%;
-        left: 50%;
-    }
-
-    .card .circle .box {
-        height: 100%;
-        width: 100%;
-        background: #131414;
-        border-radius: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
-        transition: all 0.2s;
-    }
-
-    .card .circle:hover .box {
-        transform: translate(-50%, -50%) scale(0.91);
-    }
-
-    .card .circle .box span,
-    .wrapper .card /*.text*/ {
-        background: -webkit-linear-gradient(left, #34E237, #09df70);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .circle .box span {
-        font-size: 38px;
-        font-family: sans-serif;
-        font-weight: 600;
-        transform: translate(-45%, -45%);
-        transition: all 0.1s;
-    }
-
-    .card .circle:hover .box span {
-        transform: translate(-45%, -45%) scale(1.09);
-    }
-
-    .card .text {
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    /*@media(max-width: 753px) {
-        .wrapper {
-            max-width: 700px;
-        }
-
-        .wrapper .card {
-            width: calc(50% - 20px);
-            margin-bottom: 20px;
-        }
-    }
-
-    @media(max-width: 505px) {
-        .wrapper {
-            max-width: 500px;
-        }
-
-        .wrapper .card {
-            width: 100%;
-        }
-    }*/
-
     .imgprox{
-        width: 15vw;
+        width: 10rem;
     }
 
     .eye {
@@ -804,15 +628,8 @@
             font-size: calc(0.9em + 0.9vw);
         }
 
-        .icon-logo {
-            height: 18vh;
-            width: 18vh;
-        }
-
         .icon-sm {
-            margin-top: 2%;
-            height: 8vh;
-            width: 8vh;
+            margin-top: 4%;
         }
 
         .btn-circle {
@@ -821,7 +638,6 @@
 
         .openside {
             width: 100vw;
-            /*height: 100vh;*/
         }
 
         .openmain {
@@ -841,12 +657,10 @@
         }
 
         .home {
-            /*padding-top: 22%;*/
             padding: 22% 5% 1% 5%;
         }
 
         .cal {
-            /*padding-top: 22%;*/
             padding: 22% 5% 2% 5%;
         }
 
@@ -856,7 +670,6 @@
 
         .lab {
             padding: 15% 0 0 0;
-            /*padding-top: auto;*/
         }
 
         .infolab {
@@ -873,7 +686,6 @@
             text-align: left;
         }
         .icon-detalle {
-            /* padding-top: 3%; */
             height: 5vh;
             width: 5vh;
         }
@@ -890,11 +702,9 @@
         }
         .inputContainer {
             margin-bottom: 5%;
-            /* height: 9vh; */
         }
         select {
             margin-bottom: 5%;
-            /* height: 9vh; */
         }
         .btn-registrar {
             font-size: calc(0.76em + 0.76vw);
@@ -913,32 +723,11 @@
         .conp{
             padding: 0 0 0 0;
         }
-
-        .imgprox {
-            width: 65%;
-        }
-        .imgperfil{        
-            height: 40vw;
-            width: 40vw;
-        }
-        .img-compas{
-            height: 14vw;
-            width: 14vw;
-        }
-        .imgeditar{        
-            height: 40vw;
-            width: 40vw;
-        }
         .comp{
             font-size: calc(0.7em + 0.7vw);
         }
         .titulo {
             font-size: calc(1.2em + 1.2vw) !important;
-        }
-
-        div.scrollmenu a {
-            font-size: calc(2.5em + 2.5vw);
-            padding-top: 4%;
         }
     }
 
