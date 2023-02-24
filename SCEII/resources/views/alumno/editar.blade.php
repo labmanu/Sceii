@@ -18,7 +18,7 @@
                 color: 'white',
                 title: 'Funcionalidad en desarrollo',
                 icon: 'warning',
-                text: "Se estan perfeccionando las funcionalidades [Vista previa del diseño final]",
+                text: "Se estan perfeccionando las funcionalidades",
                 //confirmButtonColor: '#46a525',
                 showClass: {
                     popup: 'animate__animated animate__bounceInUp'

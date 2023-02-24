@@ -10,7 +10,7 @@ class baseDatos{
 		
 	}
 	function conecta(){
-		$this->conn = mysqli_connect("localhost", "u791914892_Sceii_User","30X]jR!Nh","u791914892_Sceii");
+		$this->conn = mysqli_connect("localhost", "u791914892_Sceii_User","Sceii2023BASEDATOS","u791914892_Sceii");
         return $this->conn;
 	}
 
@@ -50,9 +50,5 @@ class baseDatos{
 	function cerrar(){
 		mysqli_close($this->conn);
 	}
-
-	
-
-
 }
 ?>

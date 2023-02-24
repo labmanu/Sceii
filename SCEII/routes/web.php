@@ -15,7 +15,7 @@ use App\Http\Controllers\ConfirmController;
 |
 */
 
-/* INTERFACES */
+// SCEII
 Route::get('/', [Controller::class,'raiz'])->name('/');
 
 // Registro

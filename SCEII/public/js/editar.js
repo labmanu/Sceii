@@ -26,30 +26,40 @@ const avatar = document.getElementById("imgeditar");
 var strbase = "";
 
 const convertBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+	return new Promise((resolve, reject) => {
+		const fileReader = new FileReader();
+		fileReader.readAsDataURL(file);
 
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
+		fileReader.onload = () => {
+		resolve(fileReader.result);
+		};
 
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
+		fileReader.onerror = (error) => {
+		reject(error);
+		};
+	});
 };
 
 const uploadImage = async (event) => {
-  const file = event.target.files[0];
-  const base64 = await convertBase64(file);
-  //console.log(base64);
-  avatar.src = base64;
-  strbase = base64;
+	const file = event.target.files[0];
+	const base64 = await convertBase64(file);
+	//console.log(base64);
+	avatar.src = base64;
+	strbase = base64;
+	var aux = "";
+	// Se elimina el formato de la imagen
+	const arr = strbase.split(",");
+	for (let index = 1; index < arr.length; index++) {
+		const element = arr[index];
+		aux += element;
+	}
+	// Se teniene hasta que encuenta una coma
+	console.log(aux);
+	strbase = aux;
 };
 
 input.addEventListener("change", (e) => {
-  uploadImage(e);
+	uploadImage(e);
 });
 
 // Bien guarro hehe
