@@ -37,7 +37,7 @@
                 <h3 class="titulo py-2 text-end">Editar perfil</h3>
 
                 <div class="fotop" for="profile_pic">
-                    <img src="{{$_SESSION["data"]->fotoPerfil}}" alt="editar" class="imgeditar" id="imgeditar">
+                    <img src="{{ $_SESSION["data"]->fotoPerfil }}" alt="editar" class="imgeditar" id="imgeditar">
                     <div class="texto-encima">
                         <div class="container-input">
                             <input type="file" name="file-5" id="file-5" class="inputfile inputfile-5" accept=".jpg, .jpeg, .png" />
@@ -72,7 +72,7 @@
                         <i class="fa-solid fa-key"></i> Nueva contraseña:
                     </label>
                 </div>
-                <select name="genero" id="genero">
+                <select name="genero" id="genero" class="fullselect">
                     <option value="f" {{ $_SESSION['perfil']->genero == "f" ? "selected" : "" }} >Femenino</option>
                     <option value="m" {{ $_SESSION['perfil']->genero == "m" ? "selected" : "" }} >Masculino</option>
                     <option value="o" {{ $_SESSION['perfil']->genero == "o" ? "selected" : "" }} >Otro</option>
@@ -105,7 +105,7 @@
             </form>
 
         </div>
-        <script  type="text/javascript" src="{{ asset('public/js/editar.js') }}"></script>
+        <script  type="text/javascript" src="{{ asset('public/js/editar.js?v='.rand()) }}"></script>
     @endsection
 
 @else

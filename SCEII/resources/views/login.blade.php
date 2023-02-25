@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Icono de la página -->
-    <link rel="icon" href="{{ asset('public/assets/logo.png') }}">
+    <link rel="icon" href="{{ asset('public/assets/logo.png?v='.rand()) }}">
     <!-- Bootstrap CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Bootstrap JavaScript Bundle with Popper -->
@@ -20,11 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Customs Styles -->
-    <!--<link rel="stylesheet" href= "public/css/login.css">-->
-    <link rel="stylesheet" href="public/css/login.css?v=<?php rand(); ?>">
-
+    <link rel="stylesheet" href="{{ asset('public/css/login.css?v='.rand()) }}">
     <!--=============== LOGIN JS ===============-->
-    <script  type="text/javascript" src="{{ asset('public/js/login.js')}}"></script>
+    <script  type="text/javascript" src="{{ asset('public/js/login.js?v='.rand()) }}"></script>
     <title>SCEII</title>
 </head>
 <!-- FIN Cabeceras -->
@@ -49,16 +47,15 @@
 <body>
     <div class="container">
         <div class="formulario">
-            <img src="{{ asset('public/assets/logo.png') }}" alt="logo" class="mx-auto d-block mb-3 icon-logo">
+            <img src="{{ asset('public/assets/logo.png?v='.rand()) }}" alt="logo" class="mx-auto d-block mb-3 icon-logo">
             <!-- Formulario de sesión -->
-            <form method="post" action="{{route('redireccion.login')}}" class="form-login">
+            <form method="post" action="{{ route('redireccion.login') }}" class="form-login">
                 @csrf
-                {{-- <input type="hidden" name="operacion" value="login" /> --}}
                 <h3 class="titulo">Iniciar Sesión
-                    <!--<label class="switch">
+                    {{-- <label class="switch">
                         <input type="checkbox">
                         <div class="slider round"></div>
-                    </label>-->
+                    </label> --}}
                 </h3>
 
                 <div class="inputContainer">
@@ -82,6 +79,7 @@
                 <br>
                 <a href="registro">Crear una cuenta</a>
                 <br>
+
                 <!-- Iconos con vinculos a redes sociales -->
                 <!--
                 <a href="https://www.facebook.com/" target="_bank">
@@ -94,8 +92,8 @@
                     <i class="fa-brands fa-whatsapp fa-2x"></i>
                 </a>
                 -->
-                
                 <!-- FIN Iconos con vinculos a redes sociales -->
+
                 <!-- Iconos con vinculos a la Tienda -->
                 <!--
                     <a href="https://play.google.com/store?hl=es" target="_bank">
@@ -106,6 +104,7 @@
                 </a>
                 -->
                 <!-- FIN Iconos con vinculos a la Tienda -->
+                
             </form>
         </div>
     </div>

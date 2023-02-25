@@ -106,7 +106,7 @@
 
     .asistencia {
         color: white;
-        padding: 6% 5% 1% 5%;
+        padding: 8% 5% 1% 5%;
         height: auto;
         width: auto;
         text-align: left;
@@ -228,8 +228,8 @@
     select {
         position: relative;
         background: transparent;
-        height: 4rem;
-        width: 100%;
+        /* height: 4rem;
+        width: 100%; */
         padding: 0 1em 0 1em;
         border: 2px solid #fff;
         border-radius: 20px 20px 20px 20px;
@@ -243,6 +243,22 @@
     
     select option {
         background-color: #131414;
+    }
+
+    .fullselect{
+        height: 4rem;
+        width: 100%;
+    }
+
+    button{
+        color: white;
+        background-color: #46a525;
+        border-radius: 10px;
+        border: none;
+    }
+
+    button:hover  {
+        background-color: green;
     }
 
     .contentlab {
@@ -341,8 +357,8 @@
     }
 
     .imgeditar {
-        height: 12rem;
-        width: 12rem;
+        height: 10rem;
+        width: 10rem;
         border-radius: 50%;
         display: block;
         margin-left: auto;
@@ -364,8 +380,8 @@
     }
 
     .imgperfil {
-        height: 12rem;
-        width: 12rem;
+        height: 10rem;
+        width: 10rem;
         border-radius: 50%;
         /* box-shadow: 0 0 40px rgb(0 0 0 / 0.4); */
         display: block;
@@ -382,8 +398,10 @@
 
     .texto-encima{
         position: absolute;
-        top: 105%;
-        left: 58%;
+        top: 95%;
+        left: 60%;
+        /* bottom: 0;
+        right: 1; */
         transform: translate(-50%, -50%);
     }
 
@@ -665,7 +683,7 @@
         }
 
         .asistencia {
-            padding-top: 22%;
+            padding-top: 24%;
         }
 
         .lab {
@@ -728,6 +746,9 @@
         }
         .titulo {
             font-size: calc(1.2em + 1.2vw) !important;
+        }
+        .texto-encima{
+            left: 70%;
         }
     }
 

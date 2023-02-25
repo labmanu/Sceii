@@ -5,7 +5,7 @@
 
     @section('content')
         <div class="home">
-            <img src="{{ $_SESSION["perfil"]->fotoPerfil }}" class="center-block imgperfil" />
+            <img src="{{ $_SESSION["data"]->fotoPerfil }}" class="center-block imgperfil" />
             <div class="user">
                 {{ $_SESSION["perfil"]->nombre }}
                 <br>

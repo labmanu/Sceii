@@ -47,13 +47,15 @@ const uploadImage = async (event) => {
 	avatar.src = base64;
 	strbase = base64;
 	var aux = "";
-	// Se elimina el formato de la imagen
+	/* 	Se elimina el formato de la imagen
+		Es necesario borra el formato o la imagen se subirá dañada si no es png 
+	*/
 	const arr = strbase.split(",");
 	for (let index = 1; index < arr.length; index++) {
 		const element = arr[index];
 		aux += element;
 	}
-	// Se teniene hasta que encuenta una coma
+	// Omite el texto hasta la primera coma [Formato de la imagen]
 	console.log(aux);
 	strbase = aux;
 };
@@ -114,7 +116,6 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 			var formFoto = {
 				imagen: strbase
 			};
-			console.log('llega');
 			$.ajax({
 				url: 'https://labmanufactura.net/api-sceii/v1/public/subirImagen.php',
 				type: 'POST',
@@ -125,7 +126,6 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 				success: function(response) {
 					ban = true;
 					link = response.link;
-					console.log('foto -> '+link);
 				},
 				error: function(xhr, status, error) {
 					const obj = JSON.parse(xhr.responseText);
@@ -147,7 +147,6 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 			link = datos.fotoPerfil;
 			ban = true;
 		}
-		console.log(ban);
 		if(ban){
 			var formUsuario = {
 				nombre: nombre.value,
@@ -158,8 +157,6 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 				foto_perfil: link,
 				claveConfirm: clave.value
 			};
-			console.log(formUsuario);
-			console.log('link -> '+link);
 			$.ajax({
 				url: 'https://labmanufactura.net/api-sceii/v1/routes/usuario.php',
 				type: 'PATCH',
@@ -172,8 +169,8 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 						background: '#131414',
 						color: 'white',
 						icon: 'success',
-						title: 'Usuario editado correctamente',
-						text: response.message+" [Para visualizar los datos de inmediato es necesario borrar el cache del navegador]",
+						title: 'Usuario editado',
+						text: response.message,
 					}).then((result) => {
 						window.location.href = "https://labmanufactura.net/SCEII/alumno/perfil";
 					});
@@ -181,7 +178,6 @@ $('#btn-editar').on('click', function() { // . -> Llamada por id
 				error: function(xhr, status, error) {
 					const obj = JSON.parse(xhr.responseText);
 					var msj = obj.message;
-					console.log(msj);
 					Swal.fire({
 						background: '#131414',
 						color: 'white',

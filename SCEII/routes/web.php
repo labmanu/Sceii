@@ -20,7 +20,8 @@ Route::get('/', [Controller::class,'raiz'])->name('/');
 
 // Registro
 Route::get('/registro', function () { return view('registro.tipo');});
-Route::get('/registro/{tipo}', function () { return view('registro.registro');});
+//Route::get('/registro/{tipo}', function () { return view('registro.registro');});
+Route::get('/registro/{tipo}', [Controller::class,'registro'])->name('registro');
 Route::get('/confirmarCuenta/{token}',  [ConfirmController::class,'start'])->name('confirmarCuenta');
 
 // Recuperar contraseña
@@ -44,3 +45,4 @@ Route::get('/alumno/laboratorio/{id}/asistencia', [Controller::class,'asistencia
 Route::get('/alumno/laboratorio/{id}/calendario', [Controller::class,'calendario'])->name('calendario');
 Route::get('/alumno/laboratorio/{id}/compañeros', [Controller::class,'compas'])->name('compas');
 
+Route::get('/alumno/laboratorio/{id}/prestamos', [Controller::class,'prestamos'])->name('prestamos');

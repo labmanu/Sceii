@@ -12,9 +12,10 @@
             <br>
             <div class="conp">
                 <h5>Compañeros</h5>
+                <?php $rd = "?v=".rand(); ?>
                 @foreach ($_SESSION["compas"] as $compa)
                     <div class="comp py-1">
-                        <img class="img-compas" src="{{$compa->foto}}" alt="img" /> 
+                        <img class="img-compas" src="{{$compa->foto.$rd}}" alt="img" /> 
                          {{$compa->nombre}}
                     </div>
                 @endforeach

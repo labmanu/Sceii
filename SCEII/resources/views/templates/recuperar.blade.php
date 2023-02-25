@@ -15,23 +15,24 @@
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.6.2.js"></script>
         <!-- JQuery Confirm -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> --}}
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> --}}
+        <!-- Sweet Alert -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Animate -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
         <!-- Customs Styles -->
-        <link rel="stylesheet" href="{{ asset('public/css/recuperar.css')}}">
-
-        <!--=============== LOGIN JS ===============-->
-        {{-- <script  type="text/javascript" src="{{ asset('public/js/recuperar.js')}}"></script> --}}
+        <link rel="stylesheet" href="{{ asset('public/css/recuperar.css?v='.rand()) }}">
         <title>Recuperación de contraseña</title>
     </head>
     <body>
         <div class="container">
             <div class="formulario">
-                <img src="{{ asset('public/assets/recuperar.png') }}" alt="logo" class="mx-auto d-block mb-3 icon-rec">
+                <img src="{{ asset('public/assets/recuperar.png?v='.rand()) }}" alt="logo" class="mx-auto d-block mb-3 icon-rec">
                 @yield('content')
             </div>
         </div>
     </body>
-    <script src="{{ asset('public/js/recuperar.js')}}"></script>
+    <script src="{{ asset('public/js/recuperar.js?v='.rand()) }}"></script>
 </html>

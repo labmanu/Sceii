@@ -23,7 +23,9 @@
                     @endfor
                 </select>
                 {{-- Por algun motivo en celular no redirecciona automaticamente --}}
-                <input type="button" value="Filtrar" class="" onclick="window.location.href=url+anio.value">
+                <button onclick="window.location.href=url+anio.value">
+                    Filtrar
+                </button>
             </div>
             {{-- Aquí esta toda la magia uwu --}}
             <div class="cal1"></div>

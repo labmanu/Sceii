@@ -128,7 +128,7 @@ require_once('responseHttp.php');
             $token_data = $auth->authorizationByToken();
             $status = $usuario->editUsuario($data, $token_data['data']['id']);
             if($status["status"]===true){
-                $this->status201("Datos actualizado correctamente");
+                $this->status201("Datos actualizados correctamente");
                }
                else{
                 $this->status400($status["error"]);

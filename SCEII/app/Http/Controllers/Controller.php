@@ -20,6 +20,17 @@ class Controller extends BaseController {
             return view('login');
     }
 
+    public function registro($tipo){
+        if($tipo != null && $tipo != ""){
+            if(($tipo == "alumno") || ($tipo == "docente") || ($tipo == "visitante")){
+                $_GET['tipo'] = $tipo;
+                return view('registro.registro');
+            }else{
+                return redirect()->route('/')->with('msj', 'No existe el tipo de usuario');
+            }
+        }
+    }
+
     public function recuperar(){
         return view('recuperar.correo');
     }
@@ -101,6 +112,7 @@ class Controller extends BaseController {
         session_start();
         if(isset($_SESSION["data"])){
             $this->alumno_laboratorios($_SESSION["data"]->token);
+            $_SESSION["data"]->fotoPerfil = $_SESSION["data"]->fotoPerfil."?v=".rand();
             return view('alumno.home');
         }else{
             return redirect()->route('/')->with('msj', '');
@@ -141,13 +153,13 @@ class Controller extends BaseController {
                 $perfil = $obj->data[0];
                 $_SESSION["perfil"] = $perfil;
                 /* Actualizar DATA [En caso de que se haya editado el usuario] */
-                if($_SESSION["data"]->fotoPerfil != $_SESSION["perfil"]->fotoPerfil)
-                    $_SESSION["data"]->fotoPerfil = $_SESSION["perfil"]->fotoPerfil;
+                $_SESSION["data"]->fotoPerfil = $_SESSION["perfil"]->fotoPerfil."?v=".rand();
                 if($_SESSION["data"]->nombre != $_SESSION["perfil"]->nombre)
                     $_SESSION["data"]->nombre = $_SESSION["perfil"]->nombre;
                 if($_SESSION["data"]->apellidos != $_SESSION["perfil"]->apellidos)
                     $_SESSION["data"]->apellidos = $_SESSION["perfil"]->apellidos;
                 /* FIN DATA */
+                
                 return view('alumno.perfil');
             } else {
                 //echo "ERROR al buscar perfil";
@@ -264,6 +276,16 @@ class Controller extends BaseController {
                 //echo "ERROR al buscar compañeros";
                 return redirect()->route('/')->with('msj', '');
             }
+        }else{
+            return redirect()->route('/')->with('msj', '');
+        }
+    }
+
+    public function prestamos(){
+        session_start();
+        if(isset($_SESSION["data"]) && isset($_SESSION["laboratorios"]) 
+        && isset($_SESSION["laboratorio"]) && isset($_SESSION["id_laboratorio"])){
+            return view('alumno.prestamos');
         }else{
             return redirect()->route('/')->with('msj', '');
         }

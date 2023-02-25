@@ -37,7 +37,7 @@
                         <a class="help"><i class="fa-solid fa-circle-info"></i> Ayuda</a>
                     </div>
                     <div class="pb-2">
-                        <a class=""><i class="fa-solid fa-screwdriver-wrench"></i> Prestamos</a>
+                        <a class="prestamos"><i class="fa-solid fa-screwdriver-wrench"></i> Prestamos</a>
                     </div>
                     <div class="pb-2">
                         <a class="text-danger"><i class="fa-solid fa-trash"></i> Abandonar laboratorio</a>

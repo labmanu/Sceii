@@ -146,6 +146,10 @@ $('.calendario').on('click', function() { // . -> Llamada por class
     window.location.href = location.href= window.location+'/calendario?anio='+year;
 });
 
+$('.prestamos').on('click', function() { // . -> Llamada por class
+    window.location.href = location.href= window.location+'/prestamos';
+});
+
 async function addLab(token) {
     const { value: code } = await Swal.fire({
         background: '#131414',
